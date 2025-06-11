@@ -1,0 +1,102 @@
+{
+  "home": {
+    "welcomeTitle": "Bienvenue !!!",
+    "welcomeText": "Ici, vous pouvez commencer une nouvelle aventure ou continuer votre progression depuis une saga spécifique.",
+    "startAdventure": "Commencer l'aventure",
+    "chooseSaga": "Choisir une saga"
+  },
+  "menu": {
+    "home": "Retour à l'accueil",
+    "chooseSaga": "Choisir une saga",
+    "map": "Retour à la carte",
+    "optionB": "Voir les abonnements"
+  },
+  "timeline": {
+    "timelineTitle": "Chronologie des sagas",
+    "explore": "Explorer",
+    "sagas": {
+      "1": {
+        "title": "Saga East Blue",
+        "description": "La saga où tout commence — nous rencontrons Luffy et son rêve de devenir Roi des Pirates."
+      },
+      "2": {
+        "title": "Saga Alabasta",
+        "description": "L'équipage arrive dans le désert d'Alabasta pour affronter Crocodile et sauver le royaume."
+      },
+      "3": {
+        "title": "Saga Île dans le ciel",
+        "description": "Une aventure dans le ciel où les pirates cherchent des trésors légendaires et affrontent Enel."
+      },
+      "4": {
+        "title": "Saga Water Seven",
+        "description": "L'équipage arrive à Water Seven, où des événements cruciaux pour leur avenir se produisent."
+      },
+      "5": {
+        "title": "Saga Thriller Bark",
+        "description": "Une île mystérieuse où l'équipage combat des zombies et Gecko Moria."
+      },
+      "6": {
+        "title": "Saga Guerre de Marineford",
+        "description": "La plus grande guerre dans le monde de One Piece, qui décide du destin d'Ace et Luffy."
+      },
+      "7": {
+        "title": "Saga Île des Hommes-Poissons",
+        "description": "Après deux ans, l'équipage revient pour poursuivre son voyage dans le Nouveau Monde."
+      },
+      "8": {
+        "title": "Saga Dressrosa",
+        "description": "Une longue et dangereuse saga où l'équipage affronte Doflamingo."
+      },
+      "9": {
+        "title": "Saga Whole Cake Island",
+        "description": "L'équipage tente de sauver Sanji de la famille de Big Mom — l'un des Quatre Empereurs."
+      },
+      "10": {
+        "title": "Saga Wano Kuni",
+        "description": "La saga des samouraïs et l'alliance contre Kaido — l'équilibre du monde est en jeu."
+      }
+    }
+  },
+  "plans": {
+    "choosePlan": "Choisissez votre plan",
+    "basic": "Basique",
+    "standard": "Standard",
+    "premium": "Premium",
+    "month": "Mois",
+    "limitedAccess": "Accès limité",
+    "ads": "Publicités",
+    "readOnly": "Lecture seule",
+    "fullAccess": "Accès complet",
+    "noAds": "Sans publicités",
+    "favorites": "Favoris et historique",
+    "allIncluded": "Tout inclus",
+    "prioritySupport": "Support prioritaire",
+    "earlyAccess": "Accès anticipé aux nouvelles fonctionnalités",
+    "select": "Sélectionner un plan"
+  },
+  "sagaDetail": {
+    "includedArcs": "Arcs inclus",
+    "featuredCharacters": "Personnages principaux",
+    "mainEpisodes": "Épisodes principaux",
+    "featuredLocations": "Lieux principaux",
+    "loading": "Chargement de la saga...",
+    "loadingSection": "Chargement de la section..."
+  },
+  "login": {
+    "title": "Connexion",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "button": "Se connecter",
+    "invalidCredentials": "Nom d'utilisateur ou mot de passe incorrect",
+    "passwordMismatch": "Les mots de passe ne correspondent pas"
+  },
+  "register": {
+    "title": "Inscription",
+    "repeatPassword": "Répétez le mot de passe",
+    "button": "S'inscrire",
+    "registered": "Inscription réussie"
+  },
+    "map": {
+    "interactive": "Carte interactive"
+  }
+}

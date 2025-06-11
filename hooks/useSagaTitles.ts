@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getSagaById } from "../services/sagasService";
+import { getSagaById } from "@/services/sagasService";
 
 type TitleMap = Record<string, string>;
 
