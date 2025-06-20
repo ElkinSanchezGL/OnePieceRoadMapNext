@@ -1,7 +1,7 @@
-
 "use client";
 
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter} from 'next/navigation';
+import { useLocale } from 'next-intl';
 import React from 'react';
 
 type ButtonRedirectProps = {
@@ -13,14 +13,14 @@ type ButtonRedirectProps = {
 
 const ButtonRedirect: React.FC<ButtonRedirectProps> = ({ text, route, className, onNavigate }) => {
   const router = useRouter();
-  const { lang } = useParams<{ lang: string }>();
+  const locale = useLocale();
 
   const handleClick = () => {
     if (onNavigate) {
       onNavigate();
     }
     
-    const fullRoute = `/${lang}/${route.replace(/^\/+/, '')}`;
+    const fullRoute = `/${locale}/${route.replace(/^\/+/, '')}`;
     
     router.push(fullRoute);
   };

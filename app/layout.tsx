@@ -1,30 +1,37 @@
 import type { Metadata } from 'next';
-import ClientLayout from './ClientLayout'
-import TranslationsProvider from '@/components/i18n/TranslationsProvider';
-import "./globals.css"
-
+import ClientLayout from './ClientLayout';
+import './globals.css';
+import { NextIntlClientProvider, hasLocale} from 'next-intl';
+import { getMessages } from 'next-intl/server'
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
 
 export const metadata: Metadata = {
   title: 'One Piece RoadMap',
   description: 'Explora el mundo de One Piece y sigue el viaje de los Sombrero de Paja.',
+};
 
-}
-
-export default function RootLayout({ 
-  children, 
-  params 
-}: { 
-  children: React.ReactNode; 
-  params: { lang: string };
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
 }) {
+  const { locale } = params;
+
+
+
+  const messages = await getMessages();
+
   return (
-    <html lang={params.lang}>
+    <html lang={locale}>
       <body>
-        <TranslationsProvider>
-        <ClientLayout lang={params.lang}>
-          {children}
-        </ClientLayout>
-        </TranslationsProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

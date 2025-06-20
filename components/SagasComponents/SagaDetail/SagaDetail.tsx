@@ -1,13 +1,29 @@
-import { useEffect } from "react";
+'use client';
+
+import { useEffect, useMemo } from "react";
 import Background from "../../GeneralComponents/Background";
 import { useTranslation } from "react-i18next";
 import { useSagaDetail } from "./useSagaData";
 import type { Props } from "./types";
-import { ArcsSection, CharactersSection, EpisodesSection, LocationsSection } from "./Sections";
 import { SagaCardCarousel } from "./SagaCardCarousel";
 import { LoadingScreen } from "../../GeneralComponents/LoadingScreen";
-import OnePieceRoadMap from "../../../assets/GeneralImages/OnePieceRoadMap.png"
-import SunnyGO from "../../../assets/Sunny.gif"
+import SunnyGO from "@/assets/Sunny.gif"
+import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png"
+import dynamic from "next/dynamic";
+const ArcsSection = dynamic(() =>
+  import('./Sections').then((mod) => mod.ArcsSection)
+);
+const CharactersSection = dynamic(() =>
+  import('./Sections').then((mod) => mod.CharactersSection)
+);
+const EpisodesSection = dynamic(() =>
+  import('./Sections').then((mod) => mod.EpisodesSection)
+);
+const LocationsSection = dynamic(() =>
+  import('./Sections').then((mod) => mod.LocationsSection)
+);
+
+
 export const SagaDetail = ({
   sagaId,
   backgroundImage,
@@ -44,21 +60,12 @@ export const SagaDetail = ({
     fetchData();
   }, [fetchData]);
 
-if (!saga || loadingData) {
-  return (
-    <LoadingScreen
-      imageSrc={OnePieceRoadMap}      
-      gifSrc={SunnyGO}
-    />
-  );
-}
-
-  const cards = [
+  const cards = useMemo(() => [
     {
-      title: saga.title,
+      title: saga?.title || '',
       text: t("sagaDetail.arcs"),
-      imageUrl: saga.image,
-      bottomImageUrl: saga.banner,
+      imageUrl: saga?.image || '',
+      bottomImageUrl: saga?.banner || '',
     },
     {
       title: t("sagaDetail.characters"),
@@ -72,7 +79,16 @@ if (!saga || loadingData) {
       title: t("sagaDetail.locations"),
       text: t("sagaDetail.locationsDescription"),
     },
-  ];
+  ], [saga, t]);
+
+  if (!saga || loadingData) {
+    return (
+      <LoadingScreen
+        imageSrc={MapRoad.src}
+        gifSrc={SunnyGO.src}
+      />
+    );
+  }
 
   return (
     <Background image={backgroundImage}>

@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import { useState, useRef, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import ButtonRedirect from "../GeneralComponents/Button"; 
+import { useState, useRef, useEffect } from 'react';
 import { usePathname, useParams } from 'next/navigation';
-
+import { useTranslations } from 'next-intl';
+import ButtonRedirect from '../GeneralComponents/Button';
 
 function useClickOutside<T extends HTMLElement>(
   ref: React.RefObject<T | null>,
@@ -18,34 +17,31 @@ function useClickOutside<T extends HTMLElement>(
         onOutsideClick();
       }
     }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
   }, [ref, onOutsideClick, active]);
 }
 
-
 const Icon = ({ isOpen }: { isOpen: boolean }) => {
-
-    if (isOpen) {
-     return (
-       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" >
-         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-       </svg>
-     );
-   }
-   return (
-     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-       <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-     </svg>
-   );
+  if (isOpen) {
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    );
+  }
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+    </svg>
+  );
 };
 
 export const BurguerDespegable = () => {
-  const { t } = useTranslation();
+  const t = useTranslations('menu');
   const [isOpen, setIsOpen] = useState(false);
-  
-  const pathname = usePathname(); 
-  const params = useParams();   
+  const pathname = usePathname();
+  const params = useParams();
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const toggleDropdown = () => setIsOpen((prev) => !prev);
@@ -53,15 +49,13 @@ export const BurguerDespegable = () => {
   useClickOutside(dropdownRef, closeDropdown, isOpen);
 
   const buttons = [
-    { labelKey: "menu.chooseSaga", route: "/sagas" },
-    { labelKey: "menu.map", route: "/map" },
-    { labelKey: "menu.optionB", route: "/plans" },
-    { labelKey: "menu.home", route: "/" },
+    { labelKey: 'chooseSaga', route: '/sagas' },
+    { labelKey: 'map', route: '/map' },
+    { labelKey: 'optionB', route: '/plans' },
+    { labelKey: 'home', route: '/' }
   ];
-  const currentBasePath = (pathname && params.lang) 
-    ? pathname.replace(`/${params.lang}`, '') || '/' 
-    : pathname;
 
+  const currentBasePath = pathname && params.lang ? pathname.replace(`/${params.lang}`, '') || '/' : pathname;
   const filteredButtons = buttons.filter((btn) => btn.route !== currentBasePath);
 
   return (
@@ -79,7 +73,7 @@ export const BurguerDespegable = () => {
       {isOpen && (
         <div
           className="origin-bottom absolute w-64 rounded-md shadow-xl bg-gray-50 p-2 ring-1 ring-black ring-opacity-5 focus:outline-none z-10 mb-2"
-          style={{ bottom: "100%", right: 0 }}
+          style={{ bottom: '100%', right: 0 }}
         >
           {filteredButtons.map(({ labelKey, route }) => (
             <ButtonRedirect

@@ -1,25 +1,23 @@
-'use client'; 
+'use client';
 
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 import { BurguerDespegable } from '@/components/GeneralComponents/BurguerDespegable';
-import LanguageSwitcher from '@/components/i18n/LanguageSwitcher';
+import LanguageSwitcher from '@/i18n/LanguageSwitcher';
 
-
-export default function ClientLayout({ 
-  children, 
-  lang 
-}: { 
-  children: React.ReactNode; 
-  lang: string;
+export default function ClientLayout({
+  children,
+}: {
+  children: React.ReactNode;
 }) {
-  const { i18n } = useTranslation();
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
 
-  useEffect(() => {
-    if (lang && i18n.language.split('-')[0] !== lang) {
-      i18n.changeLanguage(lang);
-    }
-  }, [lang, i18n]);
+  React.useEffect(() => {
+    localStorage.setItem('lang', locale);
+  }, [locale]);
 
   return (
     <>
