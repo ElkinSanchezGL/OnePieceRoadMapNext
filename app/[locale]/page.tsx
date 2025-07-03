@@ -23,6 +23,8 @@ const Home = () => {
           <div className='flex space-x-4'>
             <ButtonRedirect text={t('startAdventure')} route='/map' />
             <ButtonRedirect text={t('chooseSaga')} route='/sagas' />
+            <ButtonRedirect text={t('mugiwaras')} route='/characters' />
+  
           </div>
         </ScrollFeature>
       </main>

@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import '../globals.css';
 import ClientLayout from './ClientLayout';
-import './globals.css';
-import { NextIntlClientProvider, hasLocale} from 'next-intl';
-import { getMessages } from 'next-intl/server'
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
 
 export const metadata: Metadata = {
   title: 'One Piece RoadMap',
@@ -18,19 +16,16 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const { locale } = params;
-
-
-
-  const messages = await getMessages();
+  
+  const currentLocale = params.locale; 
+  console.log('params.locale:', currentLocale);
+  const messages = await getMessages({ locale: currentLocale });
 
   return (
-    <html lang={locale}>
+    <html>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ClientLayout>
-            {children}
-          </ClientLayout>
+        <NextIntlClientProvider locale={currentLocale} messages={messages}>
+          <ClientLayout>{children}</ClientLayout>
         </NextIntlClientProvider>
       </body>
     </html>

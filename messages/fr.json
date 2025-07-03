@@ -3,7 +3,8 @@
     "welcomeTitle": "Bienvenue !!!",
     "welcomeText": "Ici, vous pouvez commencer une nouvelle aventure ou continuer votre progression depuis une saga spécifique.",
     "startAdventure": "Commencer l'aventure",
-    "chooseSaga": "Choisir une saga"
+    "chooseSaga": "Choisir une saga",
+    "mugiwaras": "Équipage du Chapeau de Paille"
   },
   "menu": {
     "home": "Retour à l'accueil",
@@ -98,7 +99,15 @@
     "registered": "Inscription réussie"
   },
     "map": {
-    "interactive": "Carte interactive"
+    "interactive": "Carte interactive",
+      "legendTitle": "Légende de la carte",
+  "sagas": "Sagas",
+  "importantIslands": "Îles importantes",
+  "sagaAlt": "Icône de saga",
+  "islandAlt": "Icône d’île",
+  "showAll": "Tout afficher"
+      
+
   },
 "importantPlaces": {
   "maryGeoise": {
@@ -284,7 +293,25 @@
       }
     ]
   }
+},
+  "character": {
+    "crew": "Équipage",
+    "bounty": "Prime",
+    "devilFruit": "Fruit du démon",
+    "occupation": "Profession",
+    "haki": "Haki",
+    "job": "Métier",
+    "size": "Taille",
+    "age": "Âge",
+    "status": "Statut",
+    "crewDetails": "Détails de l'équipage",
+    "crewName": "Nom de l'équipage",
+    "crewRomanName": "Nom romain",
+    "crewTotalBounty": "Prime Totale de l'équipage",
+    "isYonko": "Est un Yonko !"
+  
 }
+
 
 }
 

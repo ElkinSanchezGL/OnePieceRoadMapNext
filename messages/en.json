@@ -3,7 +3,8 @@
     "welcomeTitle": "Welcome!!!",
     "welcomeText": "Here you can start a new adventure or continue your progress from a specific saga.",
     "startAdventure": "Start Adventure",
-    "chooseSaga": "Choose Saga"
+    "chooseSaga": "Choose Saga",
+    "mugiwaras": "Straw Hat Crew"
   },
   "menu": {
     "home": "Back to Home",
@@ -98,7 +99,13 @@
     "registered": "Successfully registered"
   },
     "map": {
-    "interactive": "Interactive Map"
+    "interactive": "Interactive Map",
+    "legendTitle": "Map Legend",
+    "sagas": "Sagas",
+    "importantIslands": "Important Islands",
+    "sagaAlt": "Saga icon",
+    "islandAlt": "Island icon",
+    "showAll": "Show all"
   },
 "importantPlaces": {
   "maryGeoise": {
@@ -284,6 +291,22 @@
       }
     ]
   }
+},
+  "character": {
+    "crew": "Crew",
+    "bounty": "Bounty",
+    "devilFruit": "Devil Fruit",
+    "occupation": "Occupation",
+    "haki": "Haki",
+    "job": "Job",
+    "size": "Size",
+    "age": "Age",
+    "status": "Status",
+    "crewDetails": "Crew Details",
+    "crewName": "Crew Name",
+    "crewRomanName": "Roman Name",
+    "crewTotalBounty": "Total Crew Bounty",
+    "isYonko": "Is a Yonko!"
 }
 
 }

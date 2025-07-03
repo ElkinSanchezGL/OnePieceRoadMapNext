@@ -1,5 +1,5 @@
-'use client';
-import { useEffect } from "react";
+"use client";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
 import Mapimage from "@/assets/Map/map_one_piece.png";
@@ -7,12 +7,16 @@ import MapTitle from "@/components/Map/MapTitle";
 import { MapMarker } from "@/components/Map/MapMarker";
 import { mapLocations } from "@/data/mapLocations";
 import IslandModal from "@/components/Map/IslandModal";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
+import { MapTypeIndicator } from "@/components/Map/MapTypeIndicator";
 
 const Map = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const searchParams = useSearchParams();
   const router = useRouter();
+  const [filterType, setFilterType] = useState<"all" | "saga" | "island">(
+    "all"
+  );
 
   const islandSlug = searchParams.get("island");
 
@@ -23,7 +27,7 @@ const Map = () => {
   }, [islandSlug]);
 
   useEffect(() => {
-    if (!islandSlug && typeof window !== 'undefined') {
+    if (!islandSlug && typeof window !== "undefined") {
       const lastIsland = localStorage.getItem("lastIsland");
       if (lastIsland) {
         const params = new URLSearchParams(window.location.search);
@@ -46,13 +50,28 @@ const Map = () => {
 
   const islandPath = islandData?.path.replace("/", "") || "";
 
-  const cardsRaw = t(`importantPlaces.${islandPath}.cards`, { returnObjects: true });
-  const cards = Array.isArray(cardsRaw) ? cardsRaw : undefined;
+  const cards = useMemo(() => {
+    if (!islandPath) return undefined;
+    try {
+      const raw = t.raw(`importantPlaces.${islandPath}.cards`);
+      return Array.isArray(raw) ? raw : undefined;
+    } catch (error) {
+      console.warn(
+        `No se encontró traducción para las tarjetas de ${islandPath}`,
+        error
+      );
+      return undefined;
+    }
+  }, [t, islandPath]);
 
   return (
     <div className="w-full h-screen overflow-auto bg-gray-200">
       <div className="relative aspect-[2560/1748] min-w-full min-h-full">
         <MapTitle />
+        <MapTypeIndicator
+          filterType={filterType}
+          setFilterType={setFilterType}
+        />
 
         <Image
           src={Mapimage}
@@ -62,23 +81,29 @@ const Map = () => {
           priority
         />
 
-        {mapLocations.map((loc, index) => (
-          <MapMarker
-            key={index}
-            name={loc.name}
-            coords={loc.coords}
-            path={loc.path}
-            index={index}
-            type={loc.type}
-          />
-        ))}
+        {mapLocations
+          .filter((loc) => filterType === "all" || loc.type === filterType)
+          .map((loc, index) => (
+            <MapMarker
+              key={index}
+              name={loc.name}
+              coords={loc.coords}
+              path={loc.path}
+              index={index}
+              type={loc.type}
+            />
+          ))}
 
         {islandData && (
           <IslandModal
             isOpen={true}
             onClose={closeModal}
-            islandName={t(islandData.name)}
-            description={t(`importantPlaces.${islandPath}.description`)}
+            islandName={t(`importantPlaces.${islandPath}.name`, {
+              default: islandData.name,
+            })}
+            description={t(`importantPlaces.${islandPath}.description`, {
+              default: "",
+            })}
             cards={cards}
           />
         )}

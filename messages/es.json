@@ -3,7 +3,8 @@
     "welcomeTitle": "¡Bienvenido!!!",
     "welcomeText": "Aquí puedes iniciar una nueva aventura o continuar tu progreso desde una saga específica.",
     "startAdventure": "Iniciar aventura",
-    "chooseSaga": "Seleccionar saga"
+    "chooseSaga": "Seleccionar saga",
+    "mugiwaras": "Sombreros de Paja"
   },
   "menu": {
     "home": "Volver al inicio",
@@ -98,7 +99,14 @@
     "registered": "Registrado correctamente"
   },
     "map": {
-    "interactive": "Mapa Interactivo"
+    "interactive": "Mapa Interactivo",
+    "legendTitle": "Leyenda del mapa",
+    "sagas": "Sagas",
+    "importantIslands": "Islas importantes",
+    "sagaAlt": "Ícono de saga",
+    "islandAlt": "Ícono de isla",
+     "showAll": "Mostrar Todo"
+
   },
   "importantPlaces": {
   "maryGeoise": {
@@ -284,8 +292,25 @@
       }
     ]
   }
+},
+  "character": {
+    "crew": "Tripulación",
+    "bounty": "Recompensa",
+    "devilFruit": "Fruta del Diablo",
+    "occupation": "Ocupación",
+    "haki": "Haki",
+    "job": "Trabajo",
+    "size": "Tamaño",
+    "age": "Edad",
+    "status": "Estado",
+    "crewDetails": "Detalles de la Tripulación",
+    "crewName": "Nombre de la Tripulación",
+    "crewRomanName": "Nombre Romanizado",
+    "crewTotalBounty": "Recompensa Total de la Tripulación",
+    "isYonko": "¡Es un Yonkou!"
+}
 }
 
-}
+
 
 

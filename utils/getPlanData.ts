@@ -1,20 +1,19 @@
-import { TFunction } from "i18next";
 
-export const getPlansData = (t: TFunction, formatPrice: (usd: number) => string) => [
+export const getPlansData = (t: (key:string)=> string, formatPrice: (usd: number) => string) => [
   {
-    title: t("plans.basic"),
+    title: t("basic"),
     price: formatPrice(0),
-    features: [t("plans.limitedAccess"), t("plans.ads"), t("plans.readOnly")],
+    features: [t("limitedAccess"), t("ads"), t("readOnly")],
   },
   {
-    title: t("plans.standard"),
-    price: `${formatPrice(4.99)} / ${t("plans.month")}`,
-    features: [t("plans.fullAccess"), t("plans.noAds"), t("plans.favorites")],
+    title: t("standard"),
+    price: `${formatPrice(4.99)} / ${t("month")}`,
+    features: [t("fullAccess"), t("noAds"), t("favorites")],
     highlight: true,
   },
   {
-    title: t("plans.premium"),
-    price: `${formatPrice(9.99)} / ${t("plans.month")}`,
-    features: [t("plans.allIncluded"), t("plans.prioritySupport"), t("plans.earlyAccess")],
+    title: t("premium"),
+    price: `${formatPrice(9.99)} / ${t("month")}`,
+    features: [t("allIncluded"), t("prioritySupport"), t("earlyAccess")],
   },
 ];

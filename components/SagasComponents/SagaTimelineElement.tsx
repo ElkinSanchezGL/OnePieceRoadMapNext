@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useMemo } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations, useLocale } from "next-intl";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 
 const HiArrowCircleDown = dynamic(() =>
   import("react-icons/hi").then((mod) => mod.HiArrowCircleDown)
@@ -23,8 +24,8 @@ export const SagaTimelineElement: React.FC<Props> = ({
   descriptionKey,
   route,
 }) => {
-  const { t, i18n } = useTranslation();
-  const lang = i18n.language;
+  const t = useTranslations("timeline");
+  const lang = useLocale();
 
   const fullRoute = useMemo(() => {
     return `/${lang}${route.startsWith("/") ? route : "/" + route}`;
@@ -38,19 +39,23 @@ export const SagaTimelineElement: React.FC<Props> = ({
       icon={<HiArrowCircleDown />}
     >
       <h3 className="text-xl font-semibold">{title}</h3>
-      <img
-        src={image}
-        alt={title}
-        loading="lazy"
-        className="w-full h-48 object-cover rounded-lg my-2"
-      />
+<div className="relative w-full h-48 my-2">
+  <Image
+    src={image}
+    alt={title}
+    fill
+    className="object-cover rounded-lg"
+  />
+</div>
+
       <p className="text-sm">{t(descriptionKey)}</p>
-<Link
-  href={fullRoute}
-  className="inline-block mt-4 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition"
->
-  {t("timeline.explore")}
-</Link>
+
+      <Link
+        href={fullRoute}
+        className="inline-block mt-4 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition"
+      >
+        {t("explore")}
+      </Link>
     </VerticalTimelineElement>
   );
 };

@@ -60,12 +60,6 @@ export const mapLocations = [
     type: "saga",
   },
   {
-    name: "Laugh Tale",
-    coords: {x: 0.365, y: 0.52 },
-    path: "/laugh-tale",
-    type: "island",
-  },
-  {
     name: "Mary Geoise",
     coords: { x: 0.03, y: 0.52 },
     path: "/maryGeoise",

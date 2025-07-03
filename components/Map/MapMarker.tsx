@@ -3,7 +3,7 @@ import { Tooltip } from "react-tooltip";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import pirateStatic from "@/assets/Map/OnepieceGif.png";
 import pirateGif from "@/assets/Map/OnepieceGif.gif";
@@ -27,7 +27,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
   index,
   type = 'saga'
 }) => {
-  const { t } = useTranslation();
+  const t = useTranslations('map');
   const params = useParams();
   const router = useRouter();
 
@@ -73,11 +73,11 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
 
   return type === 'island' ? (
     <button
-      aria-label={`Abrir isla ${t(name)}`}
+      aria-label={`Abrir isla ${name}`}
       className="absolute group cursor-pointer rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500"
       style={{ top, left, width: "60px", height: "60px" }}
       data-tooltip-id={`tooltip-map-${index}`}
-      data-tooltip-content={t(name)}
+      data-tooltip-content={name}
       data-tooltip-place="top"
       onClick={handleIslandClick}
     >
@@ -86,11 +86,11 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
   ) : (
     <Link
       href={fullPath}
-      aria-label={`Ir a la saga de ${t(name)}`}
+      aria-label={`Ir a la saga de ${name}`}
       className="absolute group cursor-pointer rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500"
       style={{ top, left, width: "60px", height: "60px" }}
       data-tooltip-id={`tooltip-map-${index}`}
-      data-tooltip-content={t(name)}
+      data-tooltip-content={name}
       data-tooltip-place="top"
     >
       {content}

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useLocale } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
 import { BurguerDespegable } from '@/components/GeneralComponents/BurguerDespegable';
 import LanguageSwitcher from '@/i18n/LanguageSwitcher';
 
@@ -12,22 +11,22 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const locale = useLocale();
-  const pathname = usePathname();
-  const router = useRouter();
 
   React.useEffect(() => {
-    localStorage.setItem('lang', locale);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('lang', locale);
+    }
   }, [locale]);
 
   return (
     <>
       {children}
 
-      <div style={{ position: 'fixed', top: '1rem', right: '1rem', zIndex: 1000 }}>
+      <div className="fixed top-4 right-4 z-[1000]">
         <LanguageSwitcher />
       </div>
 
-      <div style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 1000 }}>
+      <div className="fixed bottom-8 right-8 z-[1000]">
         <BurguerDespegable />
       </div>
     </>

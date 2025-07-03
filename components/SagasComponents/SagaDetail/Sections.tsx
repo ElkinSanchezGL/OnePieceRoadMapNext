@@ -1,13 +1,13 @@
-import { useTranslation } from "react-i18next";
+import { useTranslations}  from "next-intl";
 import type { Arc, Character, Episode, Location } from "./types";
 
 export const ArcsSection = ({ arcs, loading }: { arcs: Arc[]; loading: boolean }) => {
-  const { t } = useTranslation();
+  const t  = useTranslations('sagaDetail');
   return (
     <div className="bg-white rounded-lg p-4 shadow border mb-4">
-      <h3 className="font-bold text-lg mb-2">{t("sagaDetail.includedArcs")}</h3>
+      <h3 className="font-bold text-lg mb-2">{t("includedArcs")}</h3>
       {loading ? (
-        <p>{t("sagaDetail.loadingSection")}</p>
+        <p>{t("loadingSection")}</p>
       ) : (
         <ul className="list-disc list-inside">
           {arcs.map((arc) => (
@@ -26,20 +26,20 @@ export const CharactersSection = ({
   characters: Character[];
   loading: boolean;
 }) => {
-  const { t } = useTranslation();
+  const t  = useTranslations('sagaDetail');
 
   if (loading) {
     return (
       <div className="bg-white rounded-lg p-4 shadow border mb-4">
-        <h3 className="font-bold text-lg mb-2">{t("sagaDetail.featuredCharacters")}</h3>
-        <p>{t("sagaDetail.loadingSection")}</p>
+        <h3 className="font-bold text-lg mb-2">{t("featuredCharacters")}</h3>
+        <p>{t("loadingSection")}</p>
       </div>
     );
   }
 
   return (
     <div className="bg-white rounded-lg p-4 shadow border mb-4">
-      <h3 className="font-bold text-lg mb-2">{t("sagaDetail.featuredCharacters")}</h3>
+      <h3 className="font-bold text-lg mb-2">{t("featuredCharacters")}</h3>
       <ul className="list-disc list-inside">
         {characters.map((char) => (
           <li key={char.id}>{char.name}</li>
@@ -57,13 +57,13 @@ export const EpisodesSection = ({
   episodes: Episode[];
   loading: boolean;
 }) => {
-  const { t } = useTranslation();
+  const t  = useTranslations('sagaDetail');
   return (
     <div className="bg-white rounded-lg p-4 shadow border mb-4">
-      <h3 className="font-bold text-lg mb-2">{t("sagaDetail.mainEpisodes")}</h3>
+      <h3 className="font-bold text-lg mb-2">{t("mainEpisodes")}</h3>
       <ul className="list-disc list-inside">
         {loading ? (
-          <p>{t("sagaDetail.loadingSection")}</p>
+          <p>{t("loadingSection")}</p>
         ) : (
           episodes.map((ep) => (
             <li key={ep.id}>
@@ -83,17 +83,17 @@ export const LocationsSection = ({
   locations: Location[];
   loading: boolean;
 }) => {
-  const { t } = useTranslation();
+  const t  = useTranslations('sagaDetail');
   return (
     <div className="bg-white rounded-lg p-4 shadow border">
-      <h3 className="font-bold text-lg mb-2">{t("sagaDetail.featuredLocations")}</h3>
+      <h3 className="font-bold text-lg mb-2">{t("featuredLocations")}</h3>
       <ul className="list-disc list-inside">
         {loading ? (
-          <p>{t("sagaDetail.loadingSection")}</p>
+          <p>{t("loadingSection")}</p>
         ) : locations.length > 0 ? (
           locations.map((loc) => <li key={loc.id}>{loc.name}</li>)
         ) : (
-          <li>{t("sagaDetail.noLocations")}</li>
+          <li>{t("noLocations")}</li>
         )}
       </ul>
     </div>

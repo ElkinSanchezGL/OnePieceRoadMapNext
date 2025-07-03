@@ -5,28 +5,27 @@ import { routing } from '@/i18n/routing';
 
 const locales = routing.locales;
 const defaultLocale = routing.defaultLocale;
+
 const publicPaths = ['/login', '/register'];
 
-const intlMiddleware = createMiddleware(routing);
+const intlMiddleware = createMiddleware({
+  locales,
+  defaultLocale,
+});
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const sessionToken = request.cookies.get('session-token')?.value;
 
-
   const intlResponse = intlMiddleware(request);
-  if (intlResponse) return intlResponse;
-
-  const missingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  );
-  if (missingLocale) {
-    return redirectTo(`/${defaultLocale}${pathname}`, request);
+  if (intlResponse) {
+    return intlResponse;
   }
 
   const currentLocale = pathname.split('/')[1] || defaultLocale;
 
   const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '') || '/';
+
   const isPublic = publicPaths.some((p) => pathWithoutLocale.startsWith(p));
 
   if (sessionToken && isPublic) {

@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo } from "react";
 import Background from "../../GeneralComponents/Background";
-import { useTranslation } from "react-i18next";
 import { useSagaDetail } from "./useSagaData";
 import type { Props } from "./types";
 import { SagaCardCarousel } from "./SagaCardCarousel";
@@ -10,6 +9,8 @@ import { LoadingScreen } from "../../GeneralComponents/LoadingScreen";
 import SunnyGO from "@/assets/Sunny.gif"
 import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png"
 import dynamic from "next/dynamic";
+import { useTranslations, useLocale } from "next-intl";
+
 const ArcsSection = dynamic(() =>
   import('./Sections').then((mod) => mod.ArcsSection)
 );
@@ -32,8 +33,8 @@ export const SagaDetail = ({
   episodeIds,
   locationIds,
 }: Props) => {
-  const { i18n, t } = useTranslation();
-  const currentLang = i18n.language;
+  const t  = useTranslations('sagaDetail');
+  const currentLang = useLocale();
 
   const {
     saga,
@@ -63,21 +64,21 @@ export const SagaDetail = ({
   const cards = useMemo(() => [
     {
       title: saga?.title || '',
-      text: t("sagaDetail.arcs"),
+      text: t("includedArcs"),
       imageUrl: saga?.image || '',
       bottomImageUrl: saga?.banner || '',
     },
     {
-      title: t("sagaDetail.characters"),
-      text: t("sagaDetail.charactersDescription"),
+      title: t("featuredCharacters"),
+      text: ("charactersDescription"),
     },
     {
-      title: t("sagaDetail.episodes"),
-      text: t("sagaDetail.episodesDescription"),
+      title: t("mainEpisodes"),
+      text: ("episodesDescription"),
     },
     {
-      title: t("sagaDetail.locations"),
-      text: t("sagaDetail.locationsDescription"),
+      title: t("featuredLocations"),
+      text: ("locationsDescription"),
     },
   ], [saga, t]);
 

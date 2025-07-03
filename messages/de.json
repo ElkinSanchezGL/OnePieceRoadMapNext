@@ -3,7 +3,8 @@
     "welcomeTitle": "Willkommen!!!",
     "welcomeText": "In diesem Bereich kannst du ein neues Abenteuer starten oder deinen Fortschritt ab einer bestimmten Saga fortsetzen.",
     "startAdventure": "Abenteuer starten",
-    "chooseSaga": "Saga auswählen"
+    "chooseSaga": "Saga auswählen",
+    "mugiwaras": "Strohhut-Bande"
   },
   "menu": {
     "home": "Zurück zur Startseite",
@@ -98,7 +99,13 @@
     "registered": "Erfolgreich registriert"
   },
     "map": {
-    "interactive": "Interaktive Karte"
+    "interactive": "Interaktive Karte",
+      "legendTitle": "Kartenlegende",
+  "sagas": "Sagas",
+  "importantIslands": "Wichtige Inseln",
+  "sagaAlt": "Saga-Symbol",
+  "islandAlt": "Insel-Symbol",
+  "showAll": "Alle anzeigen"
   },
 "importantPlaces": {
   "maryGeoise": {
@@ -284,8 +291,24 @@
       }
     ]
   }
+},
+"character": {
+    "crew": "Besatzung",
+    "bounty": "Kopfgeld",
+    "devilFruit": "Teufelsfrucht",
+    "occupation": "Beruf",
+    "haki": "Haki",
+    "job": "Job",
+    "size": "Größe",
+    "age": "Alter",
+    "status": "Status",
+    "crewDetails": "Besatzungsdetails",
+    "crewName": "Besatzungsname",
+    "crewRomanName": "Romanischer Name",
+    "crewTotalBounty": "Gesamtes Kopfgeld der Besatzung",
+    "isYonko": "Ist ein Yonko!"
+  }
 }
 
-}
 
 
