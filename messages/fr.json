@@ -80,7 +80,7 @@
     "featuredCharacters": "Personnages principaux",
     "mainEpisodes": "Épisodes principaux",
     "featuredLocations": "Lieux principaux",
-    "loading": "Chargement de la saga...",
+    "loading": "Chargement...",
     "loadingSection": "Chargement de la section..."
   },
   "login": {
@@ -308,7 +308,7 @@
     "crewName": "Nom de l'équipage",
     "crewRomanName": "Nom romain",
     "crewTotalBounty": "Prime Totale de l'équipage",
-    "isYonko": "Est un Yonko !"
+   "loading": "Chargement..."
   
 }
 

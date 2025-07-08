@@ -69,13 +69,13 @@ export function MapTypeIndicator({ filterType, setFilterType }: Props) {
   ];
 
   return (
-    <div
-      className="absolute top-4 left-4 bg-yellow-100 border border-yellow-400 rounded-lg px-4 py-3 text-sm text-brown-800 z-10"
-      style={{ boxShadow: "inset 0 0 20px #7b4c20" }}
-    >
-      <h3 className="text-lg font-bold mb-2 text-brown-800">
-        {t("legendTitle")}
-      </h3>
+<div
+  className="absolute top-4 left-4 bg-yellow-100 border border-yellow-400 rounded-lg px-4 py-3 text-sm text-brown-800 z-10 transition-all duration-300 ease-in-out hover:scale-[1.03]"
+  style={{ boxShadow: "inset 0 0 20px #7b4c20" }}
+>
+   <h3 className="text-lg font-black mb-2 text-black-900 tracking-wide border-b border-yellow-600 pb-1">
+  {t("legendTitle")}
+</h3>
 
       <div className="flex flex-col gap-2">
         {options.map((opt) => (

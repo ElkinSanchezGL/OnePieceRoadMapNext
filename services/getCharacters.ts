@@ -56,7 +56,7 @@ export const getAllCharacters = async (lang = 'en'): Promise<Character[]> => {
           description: char.fruit.description,
         }
       : undefined,
-
+        
   }));
 };
 
@@ -64,8 +64,11 @@ export const getCharacterById = async (
   id: number,
   lang = 'en'
 ): Promise<Character | null> => {
+
+  const apiLang = ['en', 'fr'].includes(lang) ? lang : 'en';
+
   try {
-    const response = await api.get(`/characters/${lang}/${id}`);
+    const response = await api.get(`/characters/${apiLang}/${id}`);
     const char = response.data;
 
     return {
@@ -93,7 +96,6 @@ export const getCharacterById = async (
             description: char.fruit.description,
           }
         : undefined,
-
     };
   } catch (error) {
     console.error(`Error al obtener el personaje con id "${id}":`, error);

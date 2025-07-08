@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -10,16 +11,12 @@ import IslandModal from "@/components/Map/IslandModal";
 import { useTranslations } from "next-intl";
 import { MapTypeIndicator } from "@/components/Map/MapTypeIndicator";
 
-const Map = () => {
-  const t = useTranslations();
+const useIslandSlug = () => {
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const [filterType, setFilterType] = useState<"all" | "saga" | "island">(
-    "all"
-  );
+  return searchParams.get("island");
+};
 
-  const islandSlug = searchParams.get("island");
-
+const useLastIslandEffect = (islandSlug: string | null, router: any) => {
   useEffect(() => {
     if (islandSlug) {
       localStorage.setItem("lastIsland", islandSlug);
@@ -36,10 +33,38 @@ const Map = () => {
       }
     }
   }, [islandSlug, router]);
+};
 
-  const islandData = mapLocations.find(
+const useIslandData = (islandSlug: string | null) => {
+  return mapLocations.find(
     (loc) => loc.type === "island" && loc.path.replace("/", "") === islandSlug
   );
+};
+
+const useCards = (t: any, islandPath: string) => {
+  return useMemo(() => {
+    if (!islandPath) return undefined;
+    try {
+      const raw = t.raw(`importantPlaces.${islandPath}.cards`);
+      return Array.isArray(raw) ? raw : undefined;
+    } catch (error) {
+      console.warn(`No se encontr\u00f3 traducci\u00f3n para las tarjetas de ${islandPath}`, error);
+      return undefined;
+    }
+  }, [t, islandPath]);
+};
+
+const Map = () => {
+  const t = useTranslations();
+  const router = useRouter();
+  const islandSlug = useIslandSlug();
+  const [filterType, setFilterType] = useState<"all" | "saga" | "island">("all");
+
+  useLastIslandEffect(islandSlug, router);
+
+  const islandData = useIslandData(islandSlug);
+  const islandPath = islandData?.path.replace("/", "") || "";
+  const cards = useCards(t, islandPath);
 
   const closeModal = () => {
     const params = new URLSearchParams(window.location.search);
@@ -48,30 +73,11 @@ const Map = () => {
     router.push(`?${params.toString()}`, { scroll: false });
   };
 
-  const islandPath = islandData?.path.replace("/", "") || "";
-
-  const cards = useMemo(() => {
-    if (!islandPath) return undefined;
-    try {
-      const raw = t.raw(`importantPlaces.${islandPath}.cards`);
-      return Array.isArray(raw) ? raw : undefined;
-    } catch (error) {
-      console.warn(
-        `No se encontró traducción para las tarjetas de ${islandPath}`,
-        error
-      );
-      return undefined;
-    }
-  }, [t, islandPath]);
-
   return (
     <div className="w-full h-screen overflow-auto bg-gray-200">
       <div className="relative aspect-[2560/1748] min-w-full min-h-full">
         <MapTitle />
-        <MapTypeIndicator
-          filterType={filterType}
-          setFilterType={setFilterType}
-        />
+        <MapTypeIndicator filterType={filterType} setFilterType={setFilterType} />
 
         <Image
           src={Mapimage}

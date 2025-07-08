@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useMemo } from "react";
 import Background from "../../GeneralComponents/Background";
 import { useSagaDetail } from "./useSagaData";
@@ -10,18 +9,19 @@ import SunnyGO from "@/assets/Sunny.gif"
 import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png"
 import dynamic from "next/dynamic";
 import { useTranslations, useLocale } from "next-intl";
+const SectionsPromise = import('./Sections');
 
 const ArcsSection = dynamic(() =>
-  import('./Sections').then((mod) => mod.ArcsSection)
+  SectionsPromise.then((mod) => mod.ArcsSection)
 );
 const CharactersSection = dynamic(() =>
-  import('./Sections').then((mod) => mod.CharactersSection)
+  SectionsPromise.then((mod) => mod.CharactersSection)
 );
 const EpisodesSection = dynamic(() =>
-  import('./Sections').then((mod) => mod.EpisodesSection)
+  SectionsPromise.then((mod) => mod.EpisodesSection)
 );
 const LocationsSection = dynamic(() =>
-  import('./Sections').then((mod) => mod.LocationsSection)
+  SectionsPromise.then((mod) => mod.LocationsSection)
 );
 
 
@@ -85,8 +85,8 @@ export const SagaDetail = ({
   if (!saga || loadingData) {
     return (
       <LoadingScreen
-        imageSrc={MapRoad.src}
-        gifSrc={SunnyGO.src}
+        imageSrc={MapRoad}
+        gifSrc={SunnyGO}
       />
     );
   }

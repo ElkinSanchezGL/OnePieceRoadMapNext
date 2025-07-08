@@ -14,7 +14,7 @@ const Background = ({ children, image }: Props) => {
           src={image}
           alt="Imagen de fondo"
           fill 
-          className="object-cover opacity-80"
+          className="object-cover opacity-95"
         />
       </div>
       <div className="relative z-20">

@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -14,17 +15,18 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   
-  const currentLocale = params.locale; 
-  console.log('params.locale:', currentLocale);
-  const messages = await getMessages({ locale: currentLocale });
+  const {locale } = await params;
+
+
+  const messages = await getMessages({ locale: locale });
 
   return (
     <html>
       <body>
-        <NextIntlClientProvider locale={currentLocale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <ClientLayout>{children}</ClientLayout>
         </NextIntlClientProvider>
       </body>

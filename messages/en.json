@@ -80,7 +80,7 @@
     "featuredCharacters": "Main Characters",
     "mainEpisodes": "Featured Episodes",
     "featuredLocations": "Featured Locations",
-    "loading": "Loading saga...",
+    "loading": "Loading...",
     "loadingSection": "Loading section..."
   },
   "login": {
@@ -306,7 +306,7 @@
     "crewName": "Crew Name",
     "crewRomanName": "Roman Name",
     "crewTotalBounty": "Total Crew Bounty",
-    "isYonko": "Is a Yonko!"
+    "loading": "Loading..."
 }
 
 }
