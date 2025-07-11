@@ -8,8 +8,8 @@ import Background from "@/components/GeneralComponents/Background";
 import GeneralOnepiece from "@/assets/GeneralImages/One_Piece.png";
 import { useTranslations } from "next-intl";
 import { LoadingScreen } from "@/components/GeneralComponents/LoadingScreen";
-import SunnyGO from "@/assets/Sunny.gif"
-import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png"
+import SunnyGO from "@/assets/Sunny.gif";
+import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png";
 
 export default function CharactersPage() {
   const router = useRouter();
@@ -18,8 +18,8 @@ export default function CharactersPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getAllCharacters().then((data) => {
-      setCharacters(data.slice(0, 10));
+    getAllCharacters("en", 10).then((data) => {
+      setCharacters(data);
       setLoading(false);
     });
   }, []);

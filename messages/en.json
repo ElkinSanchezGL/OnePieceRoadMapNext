@@ -90,7 +90,8 @@
     "loading": "Loading...",
     "button": "Login",
     "invalidCredentials": "Incorrect username or password",
-    "passwordMismatch": "Passwords do not match"
+    "passwordMismatch": "Passwords do not match",
+    "logout": "log out"
   },
   "register": {
     "title": "Register",

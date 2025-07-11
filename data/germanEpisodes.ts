@@ -1,10 +1,10 @@
 export const germanEpisodes: Record<string, { id: number; episode: number; title: string }[]> = {
   "eastblue": [
-    { id: 5, episode: 5, title: "Ich bin Luffy! Der zukünftige König der Piraten!" },
+    { id: 5, episode: 1, title: "Ich bin Luffy! Der zukünftige König der Piraten!" },
     { id: 4, episode: 2, title: "Der große Schwertkämpfer! Piratenjäger Roronoa Zoro" },
     { id: 3, episode: 3, title: "Morgan gegen Luffy! Wer ist dieser schöne Fremde?" },
-    { id: 2, episode: 4, title: "Luffys Vergangenheit! Das Erscheinen von Shanks, dem Roten" },
-    { id: 1, episode: 5, title: "Geheimnisvolle und furchterregende Kräfte! Kapitän Buggy der Clown" },
+    { id: 2, episode: 10, title: "Luffys Vergangenheit! Das Erscheinen von Shanks, dem Roten" },
+    { id: 1, episode: 15, title: "Geheimnisvolle und furchterregende Kräfte! Kapitän Buggy der Clown" },
   ],
   "alabasta": [
     { id: 92, episode: 92, title: "Der Held von Alabasta. Eine Tänzerin an Bord!" },

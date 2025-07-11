@@ -3,7 +3,7 @@ export const normalizeSlug = (str: string) =>
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "");
+    .replace(/\s+/g, "-");
 
 export const slugMap: Record<string, string> = {
   "Water Seven / CP9": "water-seven",

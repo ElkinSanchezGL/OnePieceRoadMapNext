@@ -1,10 +1,10 @@
 export const japaneseEpisodes: Record<string, { id: number; episode: number; title: string }[]> = {
   "eastblue": [
-    { id: 5, episode: 5, title: "俺はルフィ! 海賊王になる男だ!" },
-    { id: 4, episode: 4, title: "大剣豪現る! 海賊狩りロロノア・ゾロ" },
+    { id: 5, episode: 1, title: "俺はルフィ! 海賊王になる男だ!" },
+    { id: 4, episode: 2, title: "大剣豪現る! 海賊狩りロロノア・ゾロ" },
     { id: 3, episode: 3, title: "モーガンVSルフィ! 謎の美少女は誰?" },
-    { id: 2, episode: 2, title: "ルフィの過去! 赤髪のシャンクス登場" },
-    { id: 1, episode: 1, title: "恐怖の謎能力! 道化のバギー船長!" },
+    { id: 2, episode: 10, title: "ルフィの過去! 赤髪のシャンクス登場" },
+    { id: 1, episode: 15, title: "恐怖の謎能力! 道化のバギー船長!" },
   ],
   "alabasta": [
     { id: 92, episode: 92, title: "アラバスタの英雄と踊る踊り子!" },

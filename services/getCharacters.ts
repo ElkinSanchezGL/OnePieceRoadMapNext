@@ -28,10 +28,9 @@ export interface Character {
 
 }
 
-
-export const getAllCharacters = async (lang = 'en'): Promise<Character[]> => {
+export const getAllCharacters = async (lang = 'en', limit?: number): Promise<Character[]> => {
   const response = await api.get(`/characters/${lang}`);
-  return response.data.map((char: any): Character => ({
+  const data = response.data.map((char: any): Character => ({
     id: char.id,
     name: char.name,
     job: char.job,
@@ -56,8 +55,9 @@ export const getAllCharacters = async (lang = 'en'): Promise<Character[]> => {
           description: char.fruit.description,
         }
       : undefined,
-        
   }));
+
+  return limit ? data.slice(0, limit) : data;
 };
 
 export const getCharacterById = async (

@@ -90,7 +90,8 @@
     "password": "Passwort",
     "button": "Anmelden",
     "invalidCredentials": "Benutzername oder Passwort falsch",
-    "passwordMismatch": "Passwörter stimmen nicht überein"
+    "passwordMismatch": "Passwörter stimmen nicht überein",
+    "logout": "Ausloggen"
   },
   "register": {
     "title": "Registrieren",

@@ -4,6 +4,7 @@ import React from 'react';
 import { useLocale } from 'next-intl';
 import { BurguerDespegable } from '@/components/GeneralComponents/BurguerDespegable';
 import LanguageSwitcher from '@/i18n/LanguageSwitcher';
+import LogoutButton from '@/components/AuthComponents/LogoutButton';
 
 export default function ClientLayout({
   children,
@@ -25,6 +26,7 @@ export default function ClientLayout({
       <div className="fixed top-4 right-4 z-[1000]">
         <LanguageSwitcher />
       </div>
+
 
       <div className="fixed bottom-8 right-8 z-[1000]">
         <BurguerDespegable />

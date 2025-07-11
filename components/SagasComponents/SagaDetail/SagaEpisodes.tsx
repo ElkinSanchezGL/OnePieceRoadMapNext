@@ -3,9 +3,14 @@ import { normalizeSlug, slugMap } from "./episodeUtils";
 import { spanishEpisodes } from "../../../data/spanishEpisodes";
 import { germanEpisodes } from "../../../data/germanEpisodes";
 import { japaneseEpisodes } from "../../../data/japaneseEpisodes";
-import { t } from "i18next";
 
 const supportedLangs = ["en", "fr"];
+
+const fallbackTexts: Record<string, string> = {
+  es: "Cargando...",
+  de: "Lädt...",
+  jp: "読み込み中...",
+};
 
 type EpisodesSource = Record<
   string,
@@ -27,7 +32,8 @@ export async function fetchEpisodes(
   episodeIds: number[] | undefined,
   getEpisodesBySagaId: (id: number, lang: string) => Promise<Episode[]>
 ): Promise<Episode[]> {
-  const normalizedLang = lang === "ja" ? "jp" : lang;
+  const baseLang = lang.split("-")[0];
+  const normalizedLang = baseLang === "ja" ? "jp" : baseLang;
 
   if (supportedLangs.includes(normalizedLang)) {
     const episodesData = await getEpisodesBySagaId(sagaId, normalizedLang);
@@ -50,7 +56,7 @@ export async function fetchEpisodes(
       ? episodeIds.map((epNum) => ({
           id: epNum,
           episode: epNum,
-          title: episodeMapByNumber[epNum]?.title || t("sagaDetail.loading"),
+          title: episodeMapByNumber[epNum]?.title || fallbackTexts[normalizedLang] || "Loading...",
         }))
       : episodesArray.slice(0, 5);
   }

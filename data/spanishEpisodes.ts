@@ -1,10 +1,11 @@
 export const spanishEpisodes: Record<string, { id: number; episode: number; title: string }[]> = {
   "eastblue": [
-    { id: 5, episode: 5, title: "¡Soy Luffy! ¡El que se convertirá en el Rey de los Piratas!" },
+    { id: 5, episode: 1, title: "¡Soy Luffy! ¡El que se convertirá en el Rey de los Piratas!" },
     { id: 4, episode: 2, title: "¡El gran espadachín! Roronoa Zoro, cazador de piratas" },
     { id: 3, episode: 3, title: "¡Morgan contra Luffy! ¿Quién es este extraño hermoso?" },
-    { id: 2, episode: 4, title: "¡El pasado de Luffy! La aparición de Shanks Le Roux" },
-    { id: 1, episode: 5, title: "¡Poderes misteriosos y aterradores! El capitán Baggy el Payaso" },
+    { id: 2, episode: 10, title: "¡El pasado de Luffy! La aparición de Shanks Le Roux" },
+    { id: 1, episode: 15, title: "¡Poderes misteriosos y aterradores! El capitán Baggy el Payaso" },
+     {id: 1, episode: 20, title: "¡Poderes misteriosos y aterradores! El capitán Baggy el Payaso" }
   ],
   "alabasta": [
     { id: 92, episode: 92, title: "El héroe de Alabasta. ¡Una bailarina en el barco!" },

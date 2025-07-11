@@ -1,11 +1,11 @@
-import { useTranslation } from "react-i18next";
+import { useLocale } from "next-intl";
 import { useMemo } from "react";
 
 export const useCurrency = () => {
-  const { i18n } = useTranslation();
+  const locale = useLocale();
 
   const currency = useMemo(() => {
-    switch (i18n.language) {
+    switch (locale) {
       case "es":
         return "COP";
       case "fr":
@@ -16,7 +16,7 @@ export const useCurrency = () => {
       default:
         return "USD";
     }
-  }, [i18n.language]);
+  }, [locale]);
 
   const conversionRates: Record<string, number> = {
     USD: 1,

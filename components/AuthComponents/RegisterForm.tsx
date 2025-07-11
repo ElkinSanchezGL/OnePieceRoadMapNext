@@ -2,30 +2,41 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
+import { useTranslations, useLocale } from "next-intl";
 import InputField from "./InputField";
+import { supabase } from "@/utils/supabase";
 
 const RegisterForm = () => {
-  const { t, i18n } = useTranslation();
+  const  t  = useTranslations();
   const router = useRouter();
+  const locale = useLocale();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     confirmPassword: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (formData.password !== formData.confirmPassword) {
+    alert(t('login.passwordMismatch'));
+    return;
+  }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert(t("login.passwordMismatch"));
-    } else {
-      alert(t("register.registered"));
-      router.push(`/${i18n.language}/login`);
-    }
-  };
+  const { error } = await supabase.auth.signUp({
+    email: formData.username,
+    password: formData.password,
+  });
+
+  if (error) {
+    alert(error.message);
+  } else {
+    alert(t('register.registered'));
+    router.push(`/${locale}/login`);
+  }
+};
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+  setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
 
   return (
     <form

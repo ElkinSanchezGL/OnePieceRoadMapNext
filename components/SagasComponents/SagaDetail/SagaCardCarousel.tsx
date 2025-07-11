@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import WantedBG from "@/assets/wanted-bg.jpg";
 
-type CardData = {
+export type CardData = {
   title: string;
   text: string;
   imageUrl?: string;

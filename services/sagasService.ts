@@ -13,11 +13,18 @@ export const getArcsBySagaId = async (id: number, lang = 'en') => {
   return response.data;
 };
 
-export const getCharactersBySagaId = async (id: number, lang = 'en') => {
+export const getCharactersBySagaId = async (
+  id: number,
+  lang = 'en',
+  limit?: number
+) => {
   const response = await api.get(`/characters/${lang}`, {
     params: { saga: id }
   });
-  return response.data;
+
+  const characters = response.data;
+
+  return limit ? characters.slice(0, limit) : characters;
 };
 
 export const getEpisodesBySagaId = async (id: number, lang = 'en') => {

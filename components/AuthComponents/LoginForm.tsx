@@ -4,43 +4,36 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import InputField from './InputField';
-
+import { supabase } from '@/utils/supabase';
 const LoginForm = () => {
   const t = useTranslations('login');
   const locale = useLocale();
   const router = useRouter();
 
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError(null);
+    const handleSubmit = async (e: React.FormEvent) =>{
+      e.preventDefault();
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      const {error} = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+
       });
-
-      if (response.ok) {
-        router.push(`/${locale}/`);
-      } else {
-        const errorData = await response.json();
-        setError(errorData.message || t('invalidCredentials'));
+      if (error){
+        setError(error.message || t('invalidCredentials'));
+      }else {
+        router.push (`/${locale}/`);
       }
-    } catch (err) {
-      setError(t('connectionError'));
-    } finally {
-      setIsLoading(false);
-    }
-  };
+        setIsLoading(false);
+    };
 
   return (
     <form
@@ -53,9 +46,9 @@ const LoginForm = () => {
 
       <div className="space-y-4">
         <InputField
-          id="username"
+          id="email"
           label={t('username')}
-          value={formData.username}
+          value={formData.email}
           onChange={handleChange}
         />
         <InputField
