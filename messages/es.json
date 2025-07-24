@@ -7,12 +7,14 @@
     "mugiwaras": "Sombreros de Paja",
     "screenReaderTitle": "Página principal de la app de One Piece",
     "logout": "Cerrar Sesión"
+    
   },
   "menu": {
     "home": "Volver al inicio",
     "chooseSaga": "Seleccionar saga",
     "map": "Volver al mapa",
-    "optionB": "Ver suscripciones"
+    "optionB": "Ver suscripciones",
+    "mugiwaras": "Sombreros de Paja"
   },
   "timeline": {
     "timelineTitle": "Línea de tiempo de sagas",

@@ -7,12 +7,14 @@
     "mugiwaras": "Strohhut-Bande",
     "screenReaderTitle": "Startseite der One Piece App",
     "logout": "Ausloggen"
+    
   },
   "menu": {
     "home": "Zurück zur Startseite",
     "chooseSaga": "Saga auswählen",
     "map": "Zurück zur Karte",
-    "optionB": "Abonnements ansehen"
+    "optionB": "Abonnements ansehen",
+    "mugiwaras": "Strohhut-Bande"
   },
   "timeline": {
     "timelineTitle": "Saga-Zeitstrahl",

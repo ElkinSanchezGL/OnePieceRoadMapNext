@@ -49,10 +49,11 @@ export const BurguerDespegable = () => {
   useClickOutside(dropdownRef, closeDropdown, isOpen);
 
   const buttons = [
+    { labelKey: 'home', route: '/' },
+      { labelKey: 'map', route: '/map' },
     { labelKey: 'chooseSaga', route: '/sagas' },
-    { labelKey: 'map', route: '/map' },
     { labelKey: 'optionB', route: '/plans' },
-    { labelKey: 'home', route: '/' }
+    { labelKey: 'mugiwaras', route: '/characters' }
   ];
 
   const currentBasePath = pathname && params.lang ? pathname.replace(`/${params.lang}`, '') || '/' : pathname;
