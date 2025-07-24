@@ -5,7 +5,8 @@
     "startAdventure": "Start Adventure",
     "chooseSaga": "Choose Saga",
     "mugiwaras": "Straw Hat Crew",
-    "screenReaderTitle": "Main page of the One Piece app"
+    "screenReaderTitle": "Main page of the One Piece app",
+    "logout": "log out"
   },
   "menu": {
     "home": "Back to Home",
@@ -83,7 +84,8 @@
     "mainEpisodes": "Featured Episodes",
     "featuredLocations": "Featured Locations",
     "loading": "Loading...",
-    "loadingSection": "Loading section..."
+    "loadingSection": "Loading section...",
+    "loadingTitleAlt": "Loading..."
   },
   "login": {
     "title": "Login",
@@ -110,7 +112,9 @@
     "islandAlt": "Island icon",
     "showAll": "Show all",
     "ariaLabel": "Interactive map of the One Piece world",
-    "altText": "Illustrated map showing all islands and sagas from the One Piece world"
+    "altText": "Illustrated map showing all islands and sagas from the One Piece world",
+    "goToSaga": "Go to saga {name}",
+    "openIsland": "Open island {name}"
   },
   "crew": {
     "title": "Build Your Crew",
@@ -314,31 +318,33 @@
       ]
     }
   },
-"character": {
-  "crew": "Crew",
-  "bounty": "Bounty",
-  "devilFruit": "Devil Fruit",
-  "occupation": "Occupation",
-  "haki": "Haki",
-  "job": "Job",
-  "size": "Size",
-  "age": "Age",
-  "status": "Status",
-  "crewDetails": "Crew Details",
-  "crewName": "Crew Name",
-  "crewRomanName": "Roman Name",
-  "crewTotalBounty": "Total Crew Bounty",
-  "loading": "Loading...",
-  "notFound": "Character not Found",
-  "aria": {
-    "viewDetails": "View details of {name}",
-    "goBack": "Go back",
-    "imageOf": "Image of {name}"
-  },
-  "alt": {
-    "characterPortrait": "Portrait of {name}"
-  },
-  "imageUnavailable": "Image of {name} not available"
-}
-
+  "character": {
+    "crew": "Crew",
+    "bounty": "Bounty",
+    "devilFruit": "Devil Fruit",
+    "occupation": "Occupation",
+    "haki": "Haki",
+    "job": "Job",
+    "size": "Size",
+    "age": "Age",
+    "status": "Status",
+    "crewDetails": "Crew Details",
+    "crewName": "Crew Name",
+    "crewRomanName": "Roman Name",
+    "crewTotalBounty": "Total Crew Bounty",
+    "loading": "Loading...",
+    "notFound": "Character not Found",
+    "mainContentLabel": "Main content of the page",
+    "characterImageLabel": "Image of {name}",
+    "characterImageAlt":"Portrait of {name}",
+    "aria": {
+      "viewDetails": "View details of {name}",
+      "goBack": "Go back",
+      "imageOf": "Image of {name}"
+    },
+    "alt": {
+      "characterPortrait": "Portrait of {name}"
+    },
+    "imageUnavailable": "Image of {name} not available"
+  }
 }

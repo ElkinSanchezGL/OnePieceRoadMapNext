@@ -49,8 +49,8 @@ export const ScrollFeature = ({
           <Image
             src={bottomImageUrl}
             alt={bottomImageAlt}
-            width={700}
-            height={350}
+            width={480}
+            height={280}
             className="mx-auto object-contain"
             role={bottomImageAlt === "" ? "presentation" : undefined}
           />

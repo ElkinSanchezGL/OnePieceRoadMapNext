@@ -5,7 +5,8 @@
     "startAdventure": "Iniciar aventura",
     "chooseSaga": "Seleccionar saga",
     "mugiwaras": "Sombreros de Paja",
-    "screenReaderTitle": "Página principal de la app de One Piece"
+    "screenReaderTitle": "Página principal de la app de One Piece",
+    "logout": "Cerrar Sesión"
   },
   "menu": {
     "home": "Volver al inicio",
@@ -83,14 +84,16 @@
     "mainEpisodes": "Episodios destacados",
     "featuredLocations": "Lugares destacados",
     "loading": "Cargando...",
-    "loadingSection": "Cargando sección..."
+    "loadingSection": "Cargando sección...",
+    "loadingTitleAlt": "Cargando..."
+
   },
   "login": {
     "title": "Iniciar Sesión",
     "username": "Nombre de usuario",
     "password": "Contraseña",
     "button": "Iniciar Sesión",
-    "loading":"Cargando...",
+    "loading": "Cargando...",
     "invalidCredentials": "Usuario o contraseña incorrectos",
     "passwordMismatch": "Las contraseñas no coinciden",
     "logout": "Cerrar Sesión"
@@ -101,7 +104,7 @@
     "button": "Registrar",
     "registered": "Registrado correctamente"
   },
-    "map": {
+  "map": {
     "interactive": "Mapa Interactivo",
     "legendTitle": "Leyenda del mapa",
     "sagas": "Sagas",
@@ -110,19 +113,20 @@
     "islandAlt": "Ícono de isla",
     "showAll": "Mostrar Todo",
     "ariaLabel": "Mapa interactivo del mundo de One Piece",
-    "altText": "Mapa ilustrado con todas las islas y sagas del mundo de One Piece"
-
+    "altText": "Mapa ilustrado con todas las islas y sagas del mundo de One Piece",
+    "goToSaga": "Ir a la saga {name}",
+    "openIsland": "Abrir isla {name}"
   },
   "crew": {
     "title": "Arma tu Tripulación",
     "availableCharacters": "Personajes Disponibles",
     "yourCrew": "Tu Tripulación",
     "add": "Agregar",
-      "remove": "Quitar",
+    "remove": "Quitar",
     "limitReached": "Solo puedes tener 10 miembros en tu tripulación",
-      "openPack": "Abrir un sobre",
-  "noMorePacks": "No hay más sobres",
-  "noPackOpened": "Aún no se ha abierto ningún sobre",
+    "openPack": "Abrir un sobre",
+    "noMorePacks": "No hay más sobres",
+    "noPackOpened": "Aún no se ha abierto ningún sobre",
     "rarities": {
       "common": "Común",
       "rare": "Raro",
@@ -130,194 +134,193 @@
       "legendary": "Legendario"
     }
   },
-
   "importantPlaces": {
-  "maryGeoise": {
-    "name": "Mary Geoise",
-    "description": "La capital del Gobierno Mundial y hogar de los Dragones Celestiales. Lugar del Reverie y del misterioso gobernante Im.",
-    "cards": [
-      {
-        "id": "imu_throne",
-        "title": "Imu sentado en el trono vacío",
-        "description": "Imu, la figura misteriosa que lidera el Gobierno Mundial desde las sombras, es visto sentado en el trono vacío, rompiendo la regla de que nadie debe ocuparlo."
-      },
-      {
-        "id": "kuma_slave",
-        "title": "Kuma como esclavo de Tenryuubito",
-        "description": "Bartholomew Kuma es reducido a un esclavo sin voluntad y usado por los Tenryuubito como transporte personal en la Tierra Sagrada."
-      },
-      {
-        "id": "gorosei_location",
-        "title": "Ubicación de los Cinco Ancianos (Gorosei)",
-        "description": "Los líderes supremos del Gobierno Mundial se reúnen regularmente en Mary Geoise para tomar decisiones cruciales sobre el mundo."
-      },
-      {
-        "id": "tenryuubito_residence",
-        "title": "Residencia de los Tenryuubito (Dragones Celestiales)",
-        "description": "Los Dragones Celestiales viven en lujosas mansiones aisladas del mundo, donde ejercen su poder absoluto sin consecuencias."
-      }
-    ]
+    "maryGeoise": {
+      "name": "Mary Geoise",
+      "description": "La capital del Gobierno Mundial y hogar de los Dragones Celestiales. Lugar del Reverie y del misterioso gobernante Im.",
+      "cards": [
+        {
+          "id": "imu_throne",
+          "title": "Imu sentado en el trono vacío",
+          "description": "Imu, la figura misteriosa que lidera el Gobierno Mundial desde las sombras, es visto sentado en el trono vacío, rompiendo la regla de que nadie debe ocuparlo."
+        },
+        {
+          "id": "kuma_slave",
+          "title": "Kuma como esclavo de Tenryuubito",
+          "description": "Bartholomew Kuma es reducido a un esclavo sin voluntad y usado por los Tenryuubito como transporte personal en la Tierra Sagrada."
+        },
+        {
+          "id": "gorosei_location",
+          "title": "Ubicación de los Cinco Ancianos (Gorosei)",
+          "description": "Los líderes supremos del Gobierno Mundial se reúnen regularmente en Mary Geoise para tomar decisiones cruciales sobre el mundo."
+        },
+        {
+          "id": "tenryuubito_residence",
+          "title": "Residencia de los Tenryuubito (Dragones Celestiales)",
+          "description": "Los Dragones Celestiales viven en lujosas mansiones aisladas del mundo, donde ejercen su poder absoluto sin consecuencias."
+        }
+      ]
+    },
+    "germa66": {
+      "name": "Germa 66",
+      "description": "Un reino militar móvil dirigido por la familia Vinsmoke. Conocido por su avanzada tecnología de clonación.",
+      "cards": [
+        {
+          "id": "vinsmoke_experiments",
+          "title": "Experimentos con los hijos",
+          "description": "Judge, el patriarca del Germa, modifica genéticamente a sus hijos para convertirlos en supersoldados sin emociones."
+        },
+        {
+          "id": "raid_suit_tech",
+          "title": "Tecnología avanzada: Clonación y Raid Suits",
+          "description": "Germa 66 posee una tecnología de combate muy avanzada, incluyendo trajes de poder (Raid Suits) y clonación masiva de soldados."
+        },
+        {
+          "id": "sanji_pudding_wedding",
+          "title": "Boda de Sanji y Pudding",
+          "description": "Un matrimonio arreglado entre Sanji y Charlotte Pudding se planea para unir los reinos Germa y Big Mom, aunque oculta traiciones por ambos lados."
+        }
+      ]
+    },
+    "amazonLily": {
+      "name": "Amazon Lily",
+      "description": "Isla habitada solo por mujeres. Hogar de la tribu Kuja y gobernada por Boa Hancock.",
+      "cards": [
+        {
+          "id": "luffy_vs_sisters",
+          "title": "Luffy pelea contra las hermanas de Hancock",
+          "description": "Luffy combate contra las hermanas de Boa Hancock en una arena pública, revelando accidentalmente su Haki del Rey."
+        },
+        {
+          "id": "hancock_love",
+          "title": "Hancock se enamora de Luffy",
+          "description": "Por primera vez, Boa Hancock siente amor hacia alguien: Luffy, por su valentía, inocencia y rechazo a su belleza superficial."
+        },
+        {
+          "id": "bb_vs_hancock",
+          "title": "Barbanegra y Hancock cara a cara",
+          "description": "En el arco del Nuevo Mundo, Barbanegra y Hancock se enfrentan en Amazon Lily mientras la Marina intenta capturar a los Shichibukai."
+        }
+      ]
+    },
+    "weatheria": {
+      "name": "Weatheria",
+      "description": "Isla flotante del cielo especializada en ciencia climática. Nami entrenó aquí durante el salto temporal.",
+      "cards": [
+        {
+          "id": "nami_arrives",
+          "title": "Nami llega a Weatheria (tras Sabaody)",
+          "description": "Tras la separación de los Mugiwara, Nami es enviada a Weatheria, una isla flotante especializada en meteorología."
+        },
+        {
+          "id": "nami_steals_book",
+          "title": "Nami robando el libro y huyendo",
+          "description": "Durante su estancia, Nami roba un libro valioso sobre manipulación del clima para poder proteger mejor a su tripulación en el futuro."
+        },
+        {
+          "id": "cloud_island",
+          "title": "Weatheria sobre las nubes",
+          "description": "La isla se mantiene flotando con tecnología climática y está poblada por científicos que estudian las condiciones meteorológicas del mundo."
+        }
+      ]
+    },
+    "sabaody": {
+      "name": "Archipiélago Sabaody",
+      "description": "Lugar donde los Sombrero de Paja conocieron a los Supernovas. Luffy golpeó a un Dragón Celestial, lo que llevó a su derrota y separación por parte de Kuma.",
+      "cards": [
+        {
+          "id": "supernovas_encounter",
+          "title": "Encuentro con los Supernovas",
+          "description": "Luffy y su tripulación conocen a otros poderosos novatos con recompensas elevadas conocidos como Supernovas."
+        },
+        {
+          "id": "kuma_appears",
+          "title": "Kuma aparece",
+          "description": "Kuma, el Shichibukai, aparece y empieza a desaparecer a los Sombrero de Paja uno por uno, separándolos por el mundo."
+        },
+        {
+          "id": "kizaru_attack",
+          "title": "Kizaru ataca",
+          "description": "El almirante Kizaru llega al archipiélago para capturar a los Supernovas y ataca sin piedad con su velocidad de luz."
+        }
+      ]
+    },
+    "elbaf": {
+      "name": "Elbaf",
+      "description": "Tierra de los gigantes y hogar de los guerreros más fuertes. Estrechamente relacionada con el pasado de Big Mom. Usopp sueña con visitarla.",
+      "cards": [
+        {
+          "id": "dorry_brogy_duel",
+          "title": "Duelo entre Dorry y Brogy",
+          "description": "Dos gigantes guerreros de Elbaf, Dorry y Brogy, luchan cada día durante más de un siglo por honor y orgullo."
+        },
+        {
+          "id": "big_mom_disaster",
+          "title": "El desastre de Big Mom en Elbaf",
+          "description": "Durante su infancia, Big Mom provoca una tragedia en Elbaf durante una celebración, alterando su destino."
+        },
+        {
+          "id": "usopp_dream",
+          "title": "Usopp quiere ser un héroe en Elbaf",
+          "description": "Usopp sueña con convertirse en un valiente guerrero del mar y ganar reconocimiento entre los gigantes de Elbaf."
+        }
+      ]
+    },
+    "punkHazard": {
+      "name": "Punk Hazard",
+      "description": "Isla peligrosa dividida entre fuego y hielo. Caesar Clown realizaba experimentos aquí. Inicio de la alianza contra Kaido.",
+      "cards": [
+        {
+          "id": "luffy_law_alliance",
+          "title": "Luffy y Law sellan la alianza",
+          "description": "Luffy y Trafalgar Law forman una alianza pirata con el objetivo de derrocar a uno de los Yonkou: Kaido."
+        },
+        {
+          "id": "vergo_vs_law",
+          "title": "Vergo contra Law",
+          "description": "Law se enfrenta a Vergo en una batalla intensa dentro del laboratorio, usando su habilidad para partirlo en dos."
+        },
+        {
+          "id": "caesar_defeated",
+          "title": "Caesar derrotado por Luffy",
+          "description": "Luffy derrota a Caesar Clown, el científico responsable de experimentos inhumanos con gas y armas químicas."
+        },
+        {
+          "id": "island_split",
+          "title": "Isla dividida entre fuego y hielo",
+          "description": "Punk Hazard se encuentra dividida por el clima extremo resultado de una batalla pasada entre Akainu y Aokiji."
+        }
+      ]
+    },
+    "beehive": {
+      "name": "Beehive",
+      "description": "También conocida como Isla Pirata. Refugio pirata gobernado actualmente por Barbanegra. Antigua base de Rocks D. Xebec.",
+      "cards": [
+        {
+          "id": "rocks_origin",
+          "title": "Cuna de los Piratas Rocks",
+          "description": "La temida tripulación de Rocks D. Xebec tuvo su origen en Beehive, una isla infame por su brutalidad pirata."
+        },
+        {
+          "id": "blackbeard_base",
+          "title": "Base de Barbanegra",
+          "description": "Tras la caída de los Rocks, la isla es tomada por Barbanegra, quien la usa como su fortaleza pirata personal."
+        },
+        {
+          "id": "garp_vs_kuzan",
+          "title": "Combate entre Garp y Kuzan (Aokiji)",
+          "description": "En Beehive tiene lugar un feroz combate entre Garp, el héroe de la Marina, y su antiguo aprendiz, Aokiji, ahora aliado de Barbanegra."
+        },
+        {
+          "id": "coby_prisoner",
+          "title": "Coby prisionero de Barbanegra",
+          "description": "Coby es capturado por la tripulación de Barbanegra en Beehive, lo que genera una operación de rescate por parte de SWORD."
+        }
+      ]
+    }
   },
-  "germa66": {
-    "name": "Germa 66",
-    "description": "Un reino militar móvil dirigido por la familia Vinsmoke. Conocido por su avanzada tecnología de clonación.",
-    "cards": [
-      {
-        "id": "vinsmoke_experiments",
-        "title": "Experimentos con los hijos",
-        "description": "Judge, el patriarca del Germa, modifica genéticamente a sus hijos para convertirlos en supersoldados sin emociones."
-      },
-      {
-        "id": "raid_suit_tech",
-        "title": "Tecnología avanzada: Clonación y Raid Suits",
-        "description": "Germa 66 posee una tecnología de combate muy avanzada, incluyendo trajes de poder (Raid Suits) y clonación masiva de soldados."
-      },
-      {
-        "id": "sanji_pudding_wedding",
-        "title": "Boda de Sanji y Pudding",
-        "description": "Un matrimonio arreglado entre Sanji y Charlotte Pudding se planea para unir los reinos Germa y Big Mom, aunque oculta traiciones por ambos lados."
-      }
-    ]
-  },
-  "amazonLily": {
-    "name": "Amazon Lily",
-    "description": "Isla habitada solo por mujeres. Hogar de la tribu Kuja y gobernada por Boa Hancock.",
-    "cards": [
-      {
-        "id": "luffy_vs_sisters",
-        "title": "Luffy pelea contra las hermanas de Hancock",
-        "description": "Luffy combate contra las hermanas de Boa Hancock en una arena pública, revelando accidentalmente su Haki del Rey."
-      },
-      {
-        "id": "hancock_love",
-        "title": "Hancock se enamora de Luffy",
-        "description": "Por primera vez, Boa Hancock siente amor hacia alguien: Luffy, por su valentía, inocencia y rechazo a su belleza superficial."
-      },
-      {
-        "id": "bb_vs_hancock",
-        "title": "Barbanegra y Hancock cara a cara",
-        "description": "En el arco del Nuevo Mundo, Barbanegra y Hancock se enfrentan en Amazon Lily mientras la Marina intenta capturar a los Shichibukai."
-      }
-    ]
-  },
-  "weatheria": {
-    "name": "Weatheria",
-    "description": "Isla flotante del cielo especializada en ciencia climática. Nami entrenó aquí durante el salto temporal.",
-    "cards": [
-      {
-        "id": "nami_arrives",
-        "title": "Nami llega a Weatheria (tras Sabaody)",
-        "description": "Tras la separación de los Mugiwara, Nami es enviada a Weatheria, una isla flotante especializada en meteorología."
-      },
-      {
-        "id": "nami_steals_book",
-        "title": "Nami robando el libro y huyendo",
-        "description": "Durante su estancia, Nami roba un libro valioso sobre manipulación del clima para poder proteger mejor a su tripulación en el futuro."
-      },
-      {
-        "id": "cloud_island",
-        "title": "Weatheria sobre las nubes",
-        "description": "La isla se mantiene flotando con tecnología climática y está poblada por científicos que estudian las condiciones meteorológicas del mundo."
-      }
-    ]
-  },
-  "sabaody": {
-    "name": "Archipiélago Sabaody",
-    "description": "Lugar donde los Sombrero de Paja conocieron a los Supernovas. Luffy golpeó a un Dragón Celestial, lo que llevó a su derrota y separación por parte de Kuma.",
-    "cards": [
-      {
-        "id": "supernovas_encounter",
-        "title": "Encuentro con los Supernovas",
-        "description": "Luffy y su tripulación conocen a otros poderosos novatos con recompensas elevadas conocidos como Supernovas."
-      },
-      {
-        "id": "kuma_appears",
-        "title": "Kuma aparece",
-        "description": "Kuma, el Shichibukai, aparece y empieza a desaparecer a los Sombrero de Paja uno por uno, separándolos por el mundo."
-      },
-      {
-        "id": "kizaru_attack",
-        "title": "Kizaru ataca",
-        "description": "El almirante Kizaru llega al archipiélago para capturar a los Supernovas y ataca sin piedad con su velocidad de luz."
-      }
-    ]
-  },
-  "elbaf": {
-    "name": "Elbaf",
-    "description": "Tierra de los gigantes y hogar de los guerreros más fuertes. Estrechamente relacionada con el pasado de Big Mom. Usopp sueña con visitarla.",
-    "cards": [
-      {
-        "id": "dorry_brogy_duel",
-        "title": "Duelo entre Dorry y Brogy",
-        "description": "Dos gigantes guerreros de Elbaf, Dorry y Brogy, luchan cada día durante más de un siglo por honor y orgullo."
-      },
-      {
-        "id": "big_mom_disaster",
-        "title": "El desastre de Big Mom en Elbaf",
-        "description": "Durante su infancia, Big Mom provoca una tragedia en Elbaf durante una celebración, alterando su destino."
-      },
-      {
-        "id": "usopp_dream",
-        "title": "Usopp quiere ser un héroe en Elbaf",
-        "description": "Usopp sueña con convertirse en un valiente guerrero del mar y ganar reconocimiento entre los gigantes de Elbaf."
-      }
-    ]
-  },
-  "punkHazard": {
-    "name": "Punk Hazard",
-    "description": "Isla peligrosa dividida entre fuego y hielo. Caesar Clown realizaba experimentos aquí. Inicio de la alianza contra Kaido.",
-    "cards": [
-      {
-        "id": "luffy_law_alliance",
-        "title": "Luffy y Law sellan la alianza",
-        "description": "Luffy y Trafalgar Law forman una alianza pirata con el objetivo de derrocar a uno de los Yonkou: Kaido."
-      },
-      {
-        "id": "vergo_vs_law",
-        "title": "Vergo contra Law",
-        "description": "Law se enfrenta a Vergo en una batalla intensa dentro del laboratorio, usando su habilidad para partirlo en dos."
-      },
-      {
-        "id": "caesar_defeated",
-        "title": "Caesar derrotado por Luffy",
-        "description": "Luffy derrota a Caesar Clown, el científico responsable de experimentos inhumanos con gas y armas químicas."
-      },
-      {
-        "id": "island_split",
-        "title": "Isla dividida entre fuego y hielo",
-        "description": "Punk Hazard se encuentra dividida por el clima extremo resultado de una batalla pasada entre Akainu y Aokiji."
-      }
-    ]
-  },
-  "beehive": {
-    "name": "Beehive",
-    "description": "También conocida como Isla Pirata. Refugio pirata gobernado actualmente por Barbanegra. Antigua base de Rocks D. Xebec.",
-    "cards": [
-      {
-        "id": "rocks_origin",
-        "title": "Cuna de los Piratas Rocks",
-        "description": "La temida tripulación de Rocks D. Xebec tuvo su origen en Beehive, una isla infame por su brutalidad pirata."
-      },
-      {
-        "id": "blackbeard_base",
-        "title": "Base de Barbanegra",
-        "description": "Tras la caída de los Rocks, la isla es tomada por Barbanegra, quien la usa como su fortaleza pirata personal."
-      },
-      {
-        "id": "garp_vs_kuzan",
-        "title": "Combate entre Garp y Kuzan (Aokiji)",
-        "description": "En Beehive tiene lugar un feroz combate entre Garp, el héroe de la Marina, y su antiguo aprendiz, Aokiji, ahora aliado de Barbanegra."
-      },
-      {
-        "id": "coby_prisoner",
-        "title": "Coby prisionero de Barbanegra",
-        "description": "Coby es capturado por la tripulación de Barbanegra en Beehive, lo que genera una operación de rescate por parte de SWORD."
-      }
-    ]
-  }
-},
   "character": {
-   "crew": "Tripulación",
+    "crew": "Tripulación",
     "bounty": "Recompensa",
     "devilFruit": "Fruta del Diablo",
     "occupation": "Ocupación",
@@ -332,6 +335,9 @@
     "crewTotalBounty": "Recompensa Total de la Tripulación",
     "loading": "Cargando...",
     "notFound": "Personaje no encontrado",
+    "mainContentLabel": "Contenido principal de la página",
+    "characterImageLabel": "Imagen de {name}",
+     "characterImageAlt": "Retrato de {name}",
     "aria": {
       "viewDetails": "Ver detalles de {name}",
       "goBack": "Volver",
@@ -340,16 +346,11 @@
     "alt": {
       "characterPortrait": "Retrato de {name}"
     },
-      "devilFruitDescriptions": {
-  "Gomu Gomu no Mi": "La Gomu Gomu no Mi, también conocida como la Fruta Goma-Goma, es una Fruta del Diablo de tipo Paramecia que otorga al cuerpo del usuario las propiedades del caucho, convirtiéndolo en un Hombre Elástico (ゴム人間, Gomu Ningen). Fue un tesoro que Shanks y su tripulación robaron a un convoy del Gobierno Mundial, protegido por el CP9, pero que fue comido accidentalmente por Monkey D. Luffy.",
-  "Hito Hito no Mi": "Quien la come se convierte en mitad humano. Como el usuario original era un reno, adquirió inteligencia que le permitió aprender grandes conocimientos. Antes del timeskip, Chopper necesitaba una Rumble-Ball para tener más transformaciones durante 3 minutos. Después del timeskip, las domina por completo y al tomar una Rumble-Ball se convierte en un monstruo gigante, pero con control total.",
-  "Hana Hana no Mi": "Permite al usuario hacer crecer partes del cuerpo (o clones) en cualquier lugar, incluso sobre otra persona. Puede combinar varias copias del mismo miembro para formar, por ejemplo, manos gigantes, o crear clones de sí mismo para confundir a los enemigos.",
-  "Yomi Yomi no Mi": "Permite al usuario volver a la vida una vez muerto (solo una vez). El usuario puede sacar su alma del cuerpo, atravesar muros y volver a él cuando quiera. Si le cortan la cabeza, puede volver a unirla por pura fuerza de voluntad (el alma sigue ligada al cuerpo). Combinado con una espada, puede congelar a sus enemigos con el frío de las profundidades que su alma transmite."
+    "devilFruitDescriptions": {
+      "Gomu Gomu no Mi": "La Gomu Gomu no Mi, también conocida como la Fruta Goma-Goma, es una Fruta del Diablo de tipo Paramecia que otorga al cuerpo del usuario las propiedades del caucho, convirtiéndolo en un Hombre Elástico (ゴム人間, Gomu Ningen). Fue un tesoro que Shanks y su tripulación robaron a un convoy del Gobierno Mundial, protegido por el CP9, pero que fue comido accidentalmente por Monkey D. Luffy.",
+      "Hito Hito no Mi": "Quien la come se convierte en mitad humano. Como el usuario original era un reno, adquirió inteligencia que le permitió aprender grandes conocimientos. Antes del timeskip, Chopper necesitaba una Rumble-Ball para tener más transformaciones durante 3 minutos. Después del timeskip, las domina por completo y al tomar una Rumble-Ball se convierte en un monstruo gigante, pero con control total.",
+      "Hana Hana no Mi": "Permite al usuario hacer crecer partes del cuerpo (o clones) en cualquier lugar, incluso sobre otra persona. Puede combinar varias copias del mismo miembro para formar, por ejemplo, manos gigantes, o crear clones de sí mismo para confundir a los enemigos.",
+      "Yomi Yomi no Mi": "Permite al usuario volver a la vida una vez muerto (solo una vez). El usuario puede sacar su alma del cuerpo, atravesar muros y volver a él cuando quiera. Si le cortan la cabeza, puede volver a unirla por pura fuerza de voluntad (el alma sigue ligada al cuerpo). Combinado con una espada, puede congelar a sus enemigos con el frío de las profundidades que su alma transmite."
+    }
+  }
 }
-}
-
-}
-
-
-
-

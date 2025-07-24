@@ -11,11 +11,11 @@ export const LoadingScreen = ({ imageSrc, gifSrc }: LoadingScreenProps) => {
   const t = useTranslations("sagaDetail");
 
   return (
-    <div
-      className="flex flex-col items-center justify-center min-h-screen bg-blue-800 text-white text-center p-6"
-      aria-busy="true"
-      aria-live="polite"
-    >
+<div
+  className="flex flex-col items-center justify-center min-h-screen w-screen bg-blue-800 text-white text-center p-6"
+  aria-busy="true"
+  aria-live="polite"
+>
       <div className="relative w-[300px] md:w-[400px] lg:w-[500px] h-[200px] mb-8">
         <Image
           src={imageSrc}

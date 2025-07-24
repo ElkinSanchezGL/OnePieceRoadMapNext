@@ -41,32 +41,33 @@ const useIslandData = (islandSlug: string | null) => {
   );
 };
 
-const useCards = (t: any, islandPath: string) => {
+const useCards = (tinsland: any, islandPath: string) => {
   return useMemo(() => {
     if (!islandPath) return undefined;
-    try {
-      const raw = t.raw(`importantPlaces.${islandPath}.cards`);
+    const key = `${islandPath}.cards`;
+
+    if (tinsland.has(key)) {
+      const raw = tinsland.raw(key);
       return Array.isArray(raw) ? raw : undefined;
-    } catch (error) {
-      console.warn(`No translation found for cards of ${islandPath}`, error);
-      return undefined;
     }
-  }, [t, islandPath]);
+
+    console.warn(`No translation found for cards of ${islandPath}`);
+    return undefined;
+  }, [tinsland, islandPath]);
 };
 
 const Map = () => {
-  const t = useTranslations('map');
+  const t = useTranslations("map");
+  const tinsland = useTranslations("importantPlaces");
   const router = useRouter();
   const islandSlug = useIslandSlug();
-  const [filterType, setFilterType] = useState<"all" | "saga" | "island">(
-    "all"
-  );
+  const [filterType, setFilterType] = useState<"all" | "saga" | "island">("all");
 
   useLastIslandEffect(islandSlug, router);
 
   const islandData = useIslandData(islandSlug);
   const islandPath = islandData?.path.replace("/", "") || "";
-  const cards = useCards(t, islandPath);
+  const cards = useCards(tinsland, islandPath);
 
   const closeModal = () => {
     const params = new URLSearchParams(window.location.search);
@@ -85,10 +86,7 @@ const Map = () => {
     >
       <div className="relative aspect-[2560/1748] min-w-full min-h-full">
         <MapTitle />
-        <MapTypeIndicator
-          filterType={filterType}
-          setFilterType={setFilterType}
-        />
+        <MapTypeIndicator filterType={filterType} setFilterType={setFilterType} />
 
         <Image
           src={MapImage}
@@ -118,10 +116,10 @@ const Map = () => {
           <IslandModal
             isOpen={true}
             onClose={closeModal}
-            islandName={t(`importantPlaces.${islandPath}.name`, {
+            islandName={tinsland(`${islandPath}.name`, {
               defaultTranslation: islandData.name,
             })}
-            description={t(`importantPlaces.${islandPath}.description`, {
+            description={tinsland(`${islandPath}.description`, {
               defaultTranslation: "",
             })}
             cards={cards}

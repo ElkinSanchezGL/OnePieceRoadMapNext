@@ -22,7 +22,7 @@ export default function SagasTimelinePage() {
         aria-labelledby="timeline-heading"
       >
         <h1 id="timeline-heading" className="sr-only">
-          {t("page.title", {
+          {t("timelineTitle", {
             defaultTranslation: "Timeline of the One Piece sagas"
           })}
         </h1>

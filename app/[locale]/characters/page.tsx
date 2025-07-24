@@ -24,19 +24,18 @@ export default function CharactersPage() {
     });
   }, []);
 
-  if (loading) {
-    return (
-      <div
-        role="status"
-        aria-live="polite"
-        aria-busy="true"
-        className="flex flex-col items-center justify-center min-h-screen"
-      >
-        <p className="sr-only">{t("loading")}</p>
-        <LoadingScreen imageSrc={MapRoad} gifSrc={SunnyGO} />
-      </div>
-    );
-  }
+if (loading) {
+  return (
+<div
+  className="flex flex-col items-center justify-center min-h-screen w-screen bg-blue-800 text-white text-center p-6"
+  aria-busy="true"
+  aria-live="polite"
+>
+
+      <LoadingScreen imageSrc={MapRoad} gifSrc={SunnyGO} />
+    </div>
+  );
+}
 
   return (
     <Background image={GeneralOnepiece}>

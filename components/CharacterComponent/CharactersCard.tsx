@@ -35,7 +35,7 @@ export default function CharacterCard({ character, onSelect }: Props) {
         {localImage ? (
           <Image
             src={localImage}
-            alt={t("alt.characterPortrait", { name: character.name })}
+            alt={t("characterImageAlt", { name: character.name })}
             fill
             className="object-cover"
           />

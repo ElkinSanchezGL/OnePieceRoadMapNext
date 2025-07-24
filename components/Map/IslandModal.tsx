@@ -46,7 +46,7 @@ export default function IslandModal({
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 bg-yellow-500 hover:bg-yellow-600 rounded-full text-white transition"
+              className="absolute cursor-pointer top-4 right-4 p-2 bg-yellow-500 hover:bg-yellow-600 rounded-full text-white transition"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
