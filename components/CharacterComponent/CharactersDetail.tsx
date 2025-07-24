@@ -35,7 +35,10 @@ export default function CharacterDetail({ characterId }: Props) {
 
   return (
     <Background image={MugiFlag}>
-      <main className="flex items-center justify-center min-h-[80vh] p-4 sm:p-6">
+      <main
+        className="flex items-center justify-center min-h-[80vh] p-4 sm:p-6"
+        aria-label={t("mainContentLabel")}
+      >
         <div
           className="relative w-full max-w-6xl bg-[#fdf5e6] border-[10px] border-[#d2b48c] rounded-md shadow-xl text-brown-900 font-serif px-4 sm:px-6 py-4 overflow-y-auto flex flex-col md:flex-row gap-6 sm:gap-8 items-center"
           style={{
@@ -45,12 +48,15 @@ export default function CharacterDetail({ characterId }: Props) {
             boxShadow: "inset 0 0 10px #aa8c66",
           }}
         >
-          <div className="flex-shrink-0 w-full md:w-1/2 flex justify-center">
+          <div
+            className="flex-shrink-0 w-full md:w-1/2 flex justify-center"
+            aria-label={t("characterImageLabel", { name: character.name })}
+          >
             {localImage ? (
               <div className="relative w-60 sm:w-72 md:w-80 h-[22rem] sm:h-[28rem] md:h-[30rem] rounded-xl overflow-hidden">
                 <Image
                   src={localImage}
-                  alt={character.name}
+                  alt={t("characterImageAlt", { name: character.name })}
                   fill
                   className="object-contain"
                   priority
@@ -58,7 +64,7 @@ export default function CharacterDetail({ characterId }: Props) {
               </div>
             ) : (
               <div className="w-60 h-80 bg-gray-200 flex items-center justify-center text-gray-500 rounded-lg shadow-lg">
-                Imagen no disponible
+                {t("noImageAvailable")}
               </div>
             )}
           </div>
@@ -117,7 +123,8 @@ export default function CharacterDetail({ characterId }: Props) {
                     "
                     {["en", "fr"].includes(locale)
                       ? character.fruit.description
-                      : t(`devilFruitDescriptions.${character.fruit.roman_name}`
+                      : t(
+                          `devilFruitDescriptions.${character.fruit.roman_name}`
                         )}
                     "
                   </p>

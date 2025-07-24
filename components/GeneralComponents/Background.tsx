@@ -9,19 +9,18 @@ type Props = {
 const Background = ({ children, image }: Props) => {
   return (
     <div className="relative min-h-screen">
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src={image}
-          alt="Imagen de fondo"
-          fill 
-          className="object-cover opacity-95"
-        />
-      </div>
-      <div className="relative z-20">
-        {children}
-      </div>
+      <Image
+        src={image}
+        alt=""
+        role="presentation"
+        fill
+        className="absolute inset-0 -z-10 object-cover opacity-95"
+      />
+      {children}
     </div>
   );
 };
+
+
 
 export default Background;

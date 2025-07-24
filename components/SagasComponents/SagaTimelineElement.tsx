@@ -25,11 +25,11 @@ export const SagaTimelineElement: React.FC<Props> = ({
   route,
 }) => {
   const t = useTranslations("timeline");
-  const lang = useLocale();
+  const locale = useLocale();
 
   const fullRoute = useMemo(() => {
-    return `/${lang}${route.startsWith("/") ? route : "/" + route}`;
-  }, [lang, route]);
+    return `/${locale}${route.startsWith("/") ? route : `/${route}`}`;
+  }, [locale, route]);
 
   return (
     <VerticalTimelineElement
@@ -38,21 +38,23 @@ export const SagaTimelineElement: React.FC<Props> = ({
       iconStyle={{ background: "#000", color: "#fff" }}
       icon={<HiArrowCircleDown />}
     >
-      <h3 className="text-xl font-semibold">{title}</h3>
-<div className="relative w-full h-48 my-2">
-  <Image
-    src={image}
-    alt={title}
-    fill
-    className="object-cover rounded-lg"
-  />
-</div>
+      <h3 className="text-xl font-semibold text-center">{title}</h3>
 
-      <p className="text-sm">{t(descriptionKey)}</p>
+      <div className="relative w-full h-48 my-3">
+        <Image
+          src={image}
+          alt={`Imagen de la saga ${title}`}
+          fill
+          className="object-cover rounded-lg border border-gray-300"
+        />
+      </div>
+
+      <p className="text-sm text-gray-800">{t(descriptionKey)}</p>
 
       <Link
         href={fullRoute}
         className="inline-block mt-4 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition"
+        aria-label={`Explorar más sobre la saga ${title}`}
       >
         {t("explore")}
       </Link>

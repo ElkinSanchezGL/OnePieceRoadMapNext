@@ -14,20 +14,31 @@ export default function SagasTimelinePage() {
   const t = useTranslations("timeline");
 
   return (
-    <Background image={Sea}>
-      <div className="container mx-auto py-12">
+    <Background
+      image={Sea}
+    >
+      <main
+        className="container mx-auto py-12"
+        aria-labelledby="timeline-heading"
+      >
+        <h1 id="timeline-heading" className="sr-only">
+          {t("page.title", {
+            defaultTranslation: "Timeline of the One Piece sagas"
+          })}
+        </h1>
+
         <VerticalTimeline>
           {sagaData.map(({ id, image, route }) => (
             <SagaTimelineElement
               key={id}
-              title={t(`sagas.${id}.title`, { default: "Cargando..." })}
+              title={t(`sagas.${id}.title`, { default: "Loading..." })}
               image={image.src}
               descriptionKey={`sagas.${id}.description`}
-              route={`/${route}`} 
+              route={`/${route}`}
             />
           ))}
         </VerticalTimeline>
-      </div>
+      </main>
     </Background>
   );
 }

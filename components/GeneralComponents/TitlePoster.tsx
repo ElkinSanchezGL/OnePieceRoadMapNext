@@ -1,13 +1,22 @@
+import Image from "next/image";
+
 type TitlePosterProps = {
   imageUrl: string;
+  imageAlt?: string; 
 };
 
-export const TitlePoster = ({ imageUrl }: TitlePosterProps) => {
+export const TitlePoster = ({ imageUrl, imageAlt = "" }: TitlePosterProps) => {
   return (
-    <div
-      className="bg-yellow-100 border border-yellow-400 rounded-lg shadow-2xl drop-shadow-xl p-6 w-[268px] h-[67px] text-brown-800 bg-no-repeat bg-center bg-contain"
-      style={{ backgroundImage: `url(${imageUrl})` }}
-    >
+    <div className="w-full max-w-[268px] h-auto">
+      <Image
+        src={imageUrl}
+        alt={imageAlt}
+        width={268}
+        height={67}
+        className="rounded-lg shadow-2xl drop-shadow-xl object-contain"
+        role="presentation"
+        priority
+      />
     </div>
   );
 };

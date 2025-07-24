@@ -49,6 +49,8 @@ export const SagaCardCarousel = ({ cards, extraContent }: SagaCardCarouselProps)
         backgroundPosition: 'center',
         boxShadow: 'inset 0 0 10px #aa8c66',
       }}
+      role="region"
+      aria-label="Saga card carousel"
     >
       <div className="relative h-[270px] w-full mt-3">
         <AnimatePresence initial={false} custom={direction}>
@@ -70,7 +72,7 @@ export const SagaCardCarousel = ({ cards, extraContent }: SagaCardCarouselProps)
                 {currentCard.bottomImageUrl && (
                   <img
                     src={currentCard.bottomImageUrl}
-                    alt="Banner"
+                    alt={`Image for ${currentCard.title}`}
                     className="max-w-full max-h-[130px] rounded mt-2 mx-auto shadow-md"
                   />
                 )}
@@ -83,19 +85,21 @@ export const SagaCardCarousel = ({ cards, extraContent }: SagaCardCarouselProps)
       {currentIndex === 0 && currentCard.imageUrl && (
         <img
           src={currentCard.imageUrl}
-          alt={currentCard.title}
+          alt={`Portrait of ${currentCard.title}`}
           className="w-32 h-32 object-cover rounded-full border-4 border-[#d2b48c] mx-auto mt-3"
         />
       )}
 
       <button
         onClick={() => paginate(-1)}
+        aria-label="Previous card"
         className="absolute -left-6 top-1/2 -translate-y-1/2 bg-[#d2b48c] hover:bg-[#c2a676] rounded-full p-2 shadow-md transition cursor-pointer"
       >
         <ChevronLeft className="w-6 h-6 text-[#4a3728]" />
       </button>
       <button
         onClick={() => paginate(1)}
+        aria-label="Next card"
         className="absolute -right-6 top-1/2 -translate-y-1/2 bg-[#d2b48c] hover:bg-[#c2a676] rounded-full p-2 shadow-md transition cursor-pointer"
       >
         <ChevronRight className="w-6 h-6 text-[#4a3728]" />

@@ -1,4 +1,3 @@
-// MapMarker.tsx
 import { Tooltip } from "react-tooltip";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import pirateStatic from "@/assets/Map/OnepieceGif.png";
 import pirateGif from "@/assets/Map/OnepieceGif.gif";
-import islandStatic from "@/assets/Map/IslandStatic.png";     
+import islandStatic from "@/assets/Map/IslandStatic.png";
 import islandGif from "@/assets/Map/IslandGif.gif";
 
 type MarkerType = 'saga' | 'island';
@@ -32,7 +31,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
   const router = useRouter();
 
   const fullPath = useMemo(() => {
-    const lang = (params?.lang as string) || 'es';
+    const lang = (params?.lang as string) || 'en';
     return `/${lang}${path.startsWith('/') ? path : '/' + path}`;
   }, [params, path]);
 
@@ -53,7 +52,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
     <>
       <Image
         src={staticImg}
-        alt={`${type} Static`}
+        alt={`${type} static image`}
         fill
         unoptimized
         className="absolute object-contain transition-opacity duration-200 group-hover:opacity-0"
@@ -61,7 +60,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
       />
       <Image
         src={gifImg}
-        alt={`${type} GIF`}
+        alt={`${type} animated GIF`}
         fill
         unoptimized
         className="absolute object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-200"
@@ -73,7 +72,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
 
   return type === 'island' ? (
     <button
-      aria-label={`Abrir isla ${name}`}
+      aria-label={t('openIsland', { name })}
       className="absolute group cursor-pointer rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500"
       style={{ top, left, width: "60px", height: "60px" }}
       data-tooltip-id={`tooltip-map-${index}`}
@@ -86,7 +85,7 @@ export const MapMarker: React.FC<MapMarkerProps> = ({
   ) : (
     <Link
       href={fullPath}
-      aria-label={`Ir a la saga de ${name}`}
+      aria-label={t('goToSaga', { name })}
       className="absolute group cursor-pointer rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500"
       style={{ top, left, width: "60px", height: "60px" }}
       data-tooltip-id={`tooltip-map-${index}`}

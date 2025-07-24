@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useId } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import cardImages from "@/assets/islandCardImages";
-import { X } from "lucide-react"; 
+import { X } from "lucide-react";
 
 interface IslandModalProps {
   isOpen: boolean;
@@ -22,6 +22,7 @@ export default function IslandModal({
 }: IslandModalProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeCard = cards[activeIndex];
+  const titleId = useId();
 
   return (
     <AnimatePresence>
@@ -32,6 +33,9 @@ export default function IslandModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
         >
           <motion.div
             className="bg-[#fffaf3] p-6 rounded-2xl max-w-3xl w-full relative shadow-lg border-4 border-yellow-600"
@@ -45,10 +49,13 @@ export default function IslandModal({
               className="absolute top-4 right-4 p-2 bg-yellow-500 hover:bg-yellow-600 rounded-full text-white transition"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5 cursor-pointer" />
+              <X className="w-5 h-5" />
             </button>
 
-            <h2 className="text-3xl font-bold mb-2 text-yellow-800">
+            <h2
+              id={titleId}
+              className="text-3xl font-bold mb-2 text-yellow-800"
+            >
               {islandName}
             </h2>
             <p className="text-gray-800 mb-6">{description}</p>
@@ -61,7 +68,9 @@ export default function IslandModal({
                   className={`px-4 py-2 rounded-full text-sm font-medium border cursor-pointer transition ${
                     index === activeIndex
                       ? "bg-yellow-500 text-white border-yellow-600"
-                      : "bg-white text-yellow-800 border-yellow-400 hover:bg-yellow-100"}`}
+                      : "bg-white text-yellow-800 border-yellow-400 hover:bg-yellow-100"
+                  }`}
+                  aria-pressed={index === activeIndex}
                 >
                   {card.title}
                 </button>
@@ -69,25 +78,28 @@ export default function IslandModal({
             </div>
 
             {activeCard && (
-              <div className="flex flex-col md:flex-row items-center gap-4">
+              <section className="flex flex-col md:flex-row items-center gap-4">
                 <div className="w-full md:w-3/5 aspect-[3/2] relative min-h-[20rem]">
                   {cardImages[activeCard.id] && (
                     <Image
                       src={cardImages[activeCard.id]}
-                      alt={activeCard.title}
+                      alt="" 
                       fill
+                      role="presentation"
                       className="object-cover rounded-lg border border-yellow-600"
                     />
                   )}
                 </div>
 
-                <div className="w-full md:w-1/2 space-y-2">
+                <article className="w-full md:w-1/2 space-y-2">
                   <h3 className="text-xl font-semibold text-yellow-900">
                     {activeCard.title}
                   </h3>
-                  <p className="text-gray-700 text-sm">{activeCard.description}</p>
-                </div>
-              </div>
+                  <p className="text-gray-700 text-sm">
+                    {activeCard.description}
+                  </p>
+                </article>
+              </section>
             )}
           </motion.div>
         </motion.div>

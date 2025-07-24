@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
-import Mapimage from "@/assets/Map/map_one_piece.png";
+import MapImage from "@/assets/Map/map_one_piece.png";
 import MapTitle from "@/components/Map/MapTitle";
 import { MapMarker } from "@/components/Map/MapMarker";
 import { mapLocations } from "@/data/mapLocations";
@@ -48,17 +48,19 @@ const useCards = (t: any, islandPath: string) => {
       const raw = t.raw(`importantPlaces.${islandPath}.cards`);
       return Array.isArray(raw) ? raw : undefined;
     } catch (error) {
-      console.warn(`No se encontr\u00f3 traducci\u00f3n para las tarjetas de ${islandPath}`, error);
+      console.warn(`No translation found for cards of ${islandPath}`, error);
       return undefined;
     }
   }, [t, islandPath]);
 };
 
 const Map = () => {
-  const t = useTranslations();
+  const t = useTranslations('map');
   const router = useRouter();
   const islandSlug = useIslandSlug();
-  const [filterType, setFilterType] = useState<"all" | "saga" | "island">("all");
+  const [filterType, setFilterType] = useState<"all" | "saga" | "island">(
+    "all"
+  );
 
   useLastIslandEffect(islandSlug, router);
 
@@ -74,14 +76,26 @@ const Map = () => {
   };
 
   return (
-    <div className="w-full h-screen overflow-auto bg-gray-200">
+    <main
+      role="main"
+      aria-label={t("ariaLabel", {
+        defaultTranslation: "Interactive map of the One Piece world",
+      })}
+      className="w-full h-screen overflow-auto bg-gray-200"
+    >
       <div className="relative aspect-[2560/1748] min-w-full min-h-full">
         <MapTitle />
-        <MapTypeIndicator filterType={filterType} setFilterType={setFilterType} />
+        <MapTypeIndicator
+          filterType={filterType}
+          setFilterType={setFilterType}
+        />
 
         <Image
-          src={Mapimage}
-          alt="Mapa interactivo del mundo de One Piece"
+          src={MapImage}
+          alt={t("altText", {
+            defaultTranslation:
+              "Illustrated map showing all islands and sagas from the One Piece world",
+          })}
           fill
           className="absolute top-0 left-0 object-contain"
           priority
@@ -105,16 +119,16 @@ const Map = () => {
             isOpen={true}
             onClose={closeModal}
             islandName={t(`importantPlaces.${islandPath}.name`, {
-              default: islandData.name,
+              defaultTranslation: islandData.name,
             })}
             description={t(`importantPlaces.${islandPath}.description`, {
-              default: "",
+              defaultTranslation: "",
             })}
             cards={cards}
           />
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

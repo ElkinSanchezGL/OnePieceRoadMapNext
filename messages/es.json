@@ -4,7 +4,8 @@
     "welcomeText": "Aquí puedes iniciar una nueva aventura o continuar tu progreso desde una saga específica.",
     "startAdventure": "Iniciar aventura",
     "chooseSaga": "Seleccionar saga",
-    "mugiwaras": "Sombreros de Paja"
+    "mugiwaras": "Sombreros de Paja",
+    "screenReaderTitle": "Página principal de la app de One Piece"
   },
   "menu": {
     "home": "Volver al inicio",
@@ -15,6 +16,7 @@
   "timeline": {
     "timelineTitle": "Línea de tiempo de sagas",
     "explore": "Explorar",
+    "title": "Línea de tiempo de las sagas de One Piece",
     "sagas": {
       "1": {
         "title": "Saga East Blue",
@@ -106,9 +108,29 @@
     "importantIslands": "Islas importantes",
     "sagaAlt": "Ícono de saga",
     "islandAlt": "Ícono de isla",
-     "showAll": "Mostrar Todo"
+    "showAll": "Mostrar Todo",
+    "ariaLabel": "Mapa interactivo del mundo de One Piece",
+    "altText": "Mapa ilustrado con todas las islas y sagas del mundo de One Piece"
 
   },
+  "crew": {
+    "title": "Arma tu Tripulación",
+    "availableCharacters": "Personajes Disponibles",
+    "yourCrew": "Tu Tripulación",
+    "add": "Agregar",
+      "remove": "Quitar",
+    "limitReached": "Solo puedes tener 10 miembros en tu tripulación",
+      "openPack": "Abrir un sobre",
+  "noMorePacks": "No hay más sobres",
+  "noPackOpened": "Aún no se ha abierto ningún sobre",
+    "rarities": {
+      "common": "Común",
+      "rare": "Raro",
+      "epic": "Épico",
+      "legendary": "Legendario"
+    }
+  },
+
   "importantPlaces": {
   "maryGeoise": {
     "name": "Mary Geoise",
@@ -295,7 +317,7 @@
   }
 },
   "character": {
-    "crew": "Tripulación",
+   "crew": "Tripulación",
     "bounty": "Recompensa",
     "devilFruit": "Fruta del Diablo",
     "occupation": "Ocupación",
@@ -309,6 +331,15 @@
     "crewRomanName": "Nombre Romanizado",
     "crewTotalBounty": "Recompensa Total de la Tripulación",
     "loading": "Cargando...",
+    "notFound": "Personaje no encontrado",
+    "aria": {
+      "viewDetails": "Ver detalles de {name}",
+      "goBack": "Volver",
+      "imageOf": "Imagen de {name}"
+    },
+    "alt": {
+      "characterPortrait": "Retrato de {name}"
+    },
       "devilFruitDescriptions": {
   "Gomu Gomu no Mi": "La Gomu Gomu no Mi, también conocida como la Fruta Goma-Goma, es una Fruta del Diablo de tipo Paramecia que otorga al cuerpo del usuario las propiedades del caucho, convirtiéndolo en un Hombre Elástico (ゴム人間, Gomu Ningen). Fue un tesoro que Shanks y su tripulación robaron a un convoy del Gobierno Mundial, protegido por el CP9, pero que fue comido accidentalmente por Monkey D. Luffy.",
   "Hito Hito no Mi": "Quien la come se convierte en mitad humano. Como el usuario original era un reno, adquirió inteligencia que le permitió aprender grandes conocimientos. Antes del timeskip, Chopper necesitaba una Rumble-Ball para tener más transformaciones durante 3 minutos. Después del timeskip, las domina por completo y al tomar una Rumble-Ball se convierte en un monstruo gigante, pero con control total.",

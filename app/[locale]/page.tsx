@@ -13,11 +13,22 @@ const Home = () => {
   const t = useTranslations("home");
 
   return (
-    <Background image={GeneralOnepiece}>
-      <main className="flex justify-center items-center h-screen">
+    <Background
+      image={GeneralOnepiece}
+    >
+      <main
+        className="flex justify-center items-center h-screen"
+        role="main"
+        aria-labelledby="home-title"
+      >
+        <h1 id="home-title" className="sr-only">
+          {t("screenReaderTitle", { default: "Página principal de la app One Piece" })}
+        </h1>
+
         <div className="fixed top-4 left-4 z-[1000]">
-          <LogoutButton />
+          <LogoutButton aria-label={t("logout")} />
         </div>
+
         <ScrollFeature
           title={t("welcomeTitle")}
           text={t("welcomeText")}
@@ -25,9 +36,18 @@ const Home = () => {
           bottomImageUrl={Mugis.src}
         >
           <div className="flex space-x-4">
-            <ButtonRedirect text={t("startAdventure")} route="/map" />
-            <ButtonRedirect text={t("chooseSaga")} route="/sagas" />
-            <ButtonRedirect text={t("mugiwaras")} route="/characters" />
+            <ButtonRedirect
+              text={t("startAdventure")}
+              route="/map"
+            />
+            <ButtonRedirect
+              text={t("chooseSaga")}
+              route="/sagas"
+            />
+            <ButtonRedirect
+              text={t("mugiwaras")}
+              route="/characters"
+            />
           </div>
         </ScrollFeature>
       </main>

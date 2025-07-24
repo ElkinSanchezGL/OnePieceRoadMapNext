@@ -24,20 +24,31 @@ export default function CharactersPage() {
     });
   }, []);
 
-  if (loading) return <LoadingScreen imageSrc={MapRoad} gifSrc={SunnyGO} />;
+  if (loading) {
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        aria-busy="true"
+        className="flex flex-col items-center justify-center min-h-screen"
+      >
+        <p className="sr-only">{t("loading")}</p>
+        <LoadingScreen imageSrc={MapRoad} gifSrc={SunnyGO} />
+      </div>
+    );
+  }
 
   return (
     <Background image={GeneralOnepiece}>
-      <div
-        className="bg-yellow-100 border border-yellow-400 rounded-lg shadow-lg p-6 w-full max-w-[950px] mx-auto text-brown-800"
-        style={{ boxShadow: "inset 0 0 30px #7b4c20" }}
-      >
-        <h1 className="text-xl font-bold mb-4 text-center">{t("mugiwaras")}</h1>
+      <main className="bg-yellow-100 border border-yellow-400 rounded-lg shadow-lg p-6 w-full max-w-[950px] mx-auto text-brown-800" style={{ boxShadow: "inset 0 0 30px #7b4c20" }}>
+        <h1 className="text-xl font-bold mb-4 text-center">
+          {t("mugiwaras")}
+        </h1>
         <CharactersGrid
           characters={characters}
           onSelect={(id) => router.push(`/characters/${id}`)}
         />
-      </div>
+      </main>
     </Background>
   );
 }
