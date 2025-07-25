@@ -30,6 +30,7 @@ export const ScrollFeature = ({
           <Image
             src={imageUrl}
             alt={imageAlt}
+            priority
             fill
             className="object-contain"
             role={imageAlt === "" ? "presentation" : undefined}
@@ -49,9 +50,10 @@ export const ScrollFeature = ({
           <Image
             src={bottomImageUrl}
             alt={bottomImageAlt}
+            priority
             width={480}
             height={280}
-            className="mx-auto object-contain"
+            className="mx-auto object-contain max-w-full h-auto"
             role={bottomImageAlt === "" ? "presentation" : undefined}
           />
         </div>

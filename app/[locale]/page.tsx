@@ -8,11 +8,13 @@ import OnePiece from "@/assets/GeneralImages/OnePieceRoadMap.png";
 import Mugis from "@/assets/GeneralImages/Mugis.png";
 import GeneralOnepiece from "@/assets/GeneralImages/One_Piece.png";
 import LogoutButton from "@/components/AuthComponents/LogoutButton";
+import ClientLayout from "./ClientLayout";
 
 const Home = () => {
   const t = useTranslations("home");
 
   return (
+    <ClientLayout>
     <Background
       image={GeneralOnepiece}
     >
@@ -52,6 +54,7 @@ const Home = () => {
         </ScrollFeature>
       </main>
     </Background>
+    </ClientLayout>
   );
 };
 

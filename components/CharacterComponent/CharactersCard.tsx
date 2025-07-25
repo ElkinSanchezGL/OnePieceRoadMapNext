@@ -1,9 +1,9 @@
 'use client';
 
-import { Character } from "@/services/getCharacters";
-import { mugiwaraImages } from "@/utils/mugiwaraImages";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Character } from "@/services/getCharacters";
+import { mugiwaraImages } from "@/utils/mugiwaraImages";
 
 type Props = {
   character: Character;
@@ -14,6 +14,8 @@ export default function CharacterCard({ character, onSelect }: Props) {
   const t = useTranslations("character");
   const normalizedKey = character.name.toLowerCase().replace(/[\s\-\.']/g, "");
   const localImage = mugiwaraImages[normalizedKey];
+
+  const handleClick = () => onSelect(character.id);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -28,7 +30,7 @@ export default function CharacterCard({ character, onSelect }: Props) {
       tabIndex={0}
       aria-label={t("aria.viewDetails", { name: character.name })}
       className="bg-white rounded-lg shadow-md hover:shadow-lg cursor-pointer overflow-hidden transition border border-yellow-300"
-      onClick={() => onSelect(character.id)}
+      onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
       <div className="relative w-full h-44">
@@ -38,6 +40,7 @@ export default function CharacterCard({ character, onSelect }: Props) {
             alt={t("characterImageAlt", { name: character.name })}
             fill
             className="object-cover"
+            priority
           />
         ) : (
           <div

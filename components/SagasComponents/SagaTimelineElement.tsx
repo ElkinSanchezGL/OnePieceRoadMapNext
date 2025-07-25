@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useMemo } from "react";
 import { useTranslations, useLocale } from "next-intl";
@@ -45,6 +45,7 @@ export const SagaTimelineElement: React.FC<Props> = ({
           src={image}
           alt={`Imagen de la saga ${title}`}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover rounded-lg border border-gray-300"
         />
       </div>
