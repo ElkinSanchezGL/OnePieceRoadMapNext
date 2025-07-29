@@ -16,7 +16,10 @@ const useIslandSlug = () => {
   return searchParams.get("island");
 };
 
-const useLastIslandEffect = (islandSlug: string | null, router: any) => {
+const useLastIslandEffect = (
+  islandSlug: string | null,
+  router: ReturnType<typeof useRouter>
+) => {
   useEffect(() => {
     if (islandSlug) {
       localStorage.setItem("lastIsland", islandSlug);
@@ -41,27 +44,68 @@ const useIslandData = (islandSlug: string | null) => {
   );
 };
 
-const useCards = (tinsland: any, islandPath: string) => {
+type IslandCard = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+function isIslandCard(obj: unknown): obj is IslandCard {
+  if (typeof obj !== "object" || obj === null) {
+    return false;
+  }
+
+  const card = obj as Partial<IslandCard>;
+  return (
+    typeof card.id === "string" &&
+    typeof card.title === "string" &&
+    typeof card.description === "string"
+  );
+}
+
+type TranslationFunction = (
+  key: string,
+  options?: Record<string, string | number | boolean>
+) => string;
+
+type ExtendedTranslationFunction = TranslationFunction & {
+  has: (key: string) => boolean;
+  raw: (key: string) => unknown;
+};
+
+const useCards = (
+  tinsland: ExtendedTranslationFunction,
+  islandPath: string
+): IslandCard[] | undefined => {
   return useMemo(() => {
     if (!islandPath) return undefined;
     const key = `${islandPath}.cards`;
 
-    if (tinsland.has(key)) {
-      const raw = tinsland.raw(key);
-      return Array.isArray(raw) ? raw : undefined;
+    if (tinsland.has?.(key)) {
+      const raw = tinsland.raw?.(key);
+
+      if (Array.isArray(raw) && raw.every(isIslandCard)) {
+        return raw;
+      }
     }
 
-    console.warn(`No translation found for cards of ${islandPath}`);
+    console.warn(
+      `No translation found or invalid format for cards of ${islandPath}`
+    );
     return undefined;
   }, [tinsland, islandPath]);
 };
 
 const Map = () => {
   const t = useTranslations("map");
-  const tinsland = useTranslations("importantPlaces");
+  const tinsland = useTranslations(
+    "importantPlaces"
+  ) as ExtendedTranslationFunction;
   const router = useRouter();
   const islandSlug = useIslandSlug();
-  const [filterType, setFilterType] = useState<"all" | "saga" | "island">("all");
+  const [filterType, setFilterType] = useState<"all" | "saga" | "island">(
+    "all"
+  );
 
   useLastIslandEffect(islandSlug, router);
 
@@ -86,7 +130,10 @@ const Map = () => {
     >
       <div className="relative aspect-[2560/1748] min-w-full min-h-full">
         <MapTitle />
-        <MapTypeIndicator filterType={filterType} setFilterType={setFilterType} />
+        <MapTypeIndicator
+          filterType={filterType}
+          setFilterType={setFilterType}
+        />
 
         <Image
           src={MapImage}

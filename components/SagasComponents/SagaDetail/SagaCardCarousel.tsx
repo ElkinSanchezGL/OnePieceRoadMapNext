@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import WantedBG from "@/assets/wanted-bg.jpg";
+import Image from "next/image";
 
 export type CardData = {
   title: string;
@@ -70,11 +71,15 @@ export const SagaCardCarousel = ({ cards, extraContent }: SagaCardCarouselProps)
               <div className="text-center px-4">
                 <p className="mb-3 text-md">{currentCard.text}</p>
                 {currentCard.bottomImageUrl && (
-                  <img
-                    src={currentCard.bottomImageUrl}
-                    alt={`Image for ${currentCard.title}`}
-                    className="max-w-full max-h-[130px] rounded mt-2 mx-auto shadow-md"
-                  />
+                  <div className="relative max-w-full h-[130px] mt-2 mx-auto shadow-md rounded overflow-hidden">
+                    <Image
+                      src={currentCard.bottomImageUrl}
+                      alt={`Image for ${currentCard.title}`}
+                      fill
+                      style={{ objectFit: 'contain' }}
+                      sizes="(max-width: 600px) 100vw, 580px"
+                    />
+                  </div>
                 )}
               </div>
             )}
@@ -83,11 +88,15 @@ export const SagaCardCarousel = ({ cards, extraContent }: SagaCardCarouselProps)
       </div>
 
       {currentIndex === 0 && currentCard.imageUrl && (
-        <img
-          src={currentCard.imageUrl}
-          alt={`Portrait of ${currentCard.title}`}
-          className="w-32 h-32 object-cover rounded-full border-4 border-[#d2b48c] mx-auto mt-3"
-        />
+        <div className="relative w-32 h-32 mx-auto mt-3 rounded-full border-4 border-[#d2b48c] overflow-hidden">
+          <Image
+            src={currentCard.imageUrl}
+            alt={`Portrait of ${currentCard.title}`}
+            fill
+            style={{ objectFit: "cover" }}
+            sizes="128px"
+          />
+        </div>
       )}
 
       <button

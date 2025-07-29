@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 
 type SagaInfoPanelProps = {
   title: string;
@@ -22,11 +23,14 @@ export const SagaInfoPanel = ({
       aria-labelledby="saga-title"
     >
       {imageUrl && (
-        <img
-          src={imageUrl}
-          alt={`Imagen representativa de la saga ${title}`}
-          className="mb-4 mx-auto w-40 rounded-md shadow-md"
-        />
+        <div className="relative mb-4 mx-auto w-40 h-40">
+          <Image
+            src={imageUrl}
+            alt={`Imagen representativa de la saga ${title}`}
+            fill
+            className="object-contain rounded-md shadow-md"
+          />
+        </div>
       )}
 
       <h2
@@ -46,11 +50,14 @@ export const SagaInfoPanel = ({
       </div>
 
       {bottomImageUrl && (
-        <img
-          src={bottomImageUrl}
-          alt={`Banner inferior de la saga ${title}`}
-          className="mt-4 mx-auto max-w-full max-h-[250px] h-auto"
-        />
+        <div className="relative mt-4 mx-auto w-full max-w-4xl h-[250px]">
+          <Image
+            src={bottomImageUrl}
+            alt={`Banner inferior de la saga ${title}`}
+            fill
+            className="object-contain"
+          />
+        </div>
       )}
     </section>
   );

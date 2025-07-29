@@ -1,5 +1,5 @@
 'use client';
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import sagaIcon from "@/assets/Map/OnepieceGif.png";
 import islandIcon from "@/assets/Map/IslandStatic.png";
 import { useTranslations } from "next-intl";
@@ -12,7 +12,7 @@ interface Props {
 
 type Option = {
   type: "saga" | "island";
-  icon: any;
+  icon: StaticImageData;
   label: string;
   alt: string;
 };
@@ -27,7 +27,7 @@ function FilterButton({
 }: {
   type: "saga" | "island";
   current: string;
-  icon: any;
+  icon: StaticImageData;
   label: string;
   alt: string;
   setFilterType: (t: "saga" | "island") => void;

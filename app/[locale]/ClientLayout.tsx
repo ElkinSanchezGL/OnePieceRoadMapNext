@@ -4,7 +4,7 @@ import React from 'react';
 import { useLocale } from 'next-intl';
 import { BurguerDespegable } from '@/components/GeneralComponents/BurguerDespegable';
 import LanguageSwitcher from '@/i18n/LanguageSwitcher';
-import LogoutButton from '@/components/AuthComponents/LogoutButton';
+
 
 export default function ClientLayout({
   children,

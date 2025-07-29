@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonRedirect from "@/components/GeneralComponents/Button";
+import Image from "next/image";
 
 type SagaBoxProps = {
   title?: string;
@@ -31,14 +32,20 @@ export const SagaBox: React.FC<SagaBoxProps> = ({
       )}
 
       <div className="w-full h-48 overflow-hidden rounded mb-3">
-        <img
+        <Image
           src={image}
           alt={title ? `Imagen de la saga ${title}` : "Imagen de la saga"}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          width={300} 
+          height={192}
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105 rounded"
+          style={{ objectFit: "cover" }}
         />
       </div>
 
-      <p className="text-sm mb-4 text-center" aria-label="Descripción de la saga">
+      <p
+        className="text-sm mb-4 text-center"
+        aria-label="Descripción de la saga"
+      >
         {description}
       </p>
 

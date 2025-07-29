@@ -74,6 +74,7 @@ export function useSagaDetail(
       setLocations(locationsData);
       setLoadingLocations(false);
     } catch (error) {
+      console.error("Error fetching saga data:", error);
       setLoadingArcs(false);
       setLoadingCharacters(false);
       setLoadingEpisodes(false);

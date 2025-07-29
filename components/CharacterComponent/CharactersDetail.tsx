@@ -120,13 +120,13 @@ export default function CharacterDetail({ characterId }: Props) {
                 </p>
                 {character.fruit.description && (
                   <p className="text-sm text-gray-600 italic mt-1">
-                    "
+                    &quot;
                     {["en", "fr"].includes(locale)
                       ? character.fruit.description
                       : t(
                           `devilFruitDescriptions.${character.fruit.roman_name}`
                         )}
-                    "
+                    &quot;
                   </p>
                 )}
               </div>

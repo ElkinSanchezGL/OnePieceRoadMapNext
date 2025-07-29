@@ -14,10 +14,11 @@ import {
   WholeCakeBG,
   WanoBG
 } from '@/assets/images';
+import { StaticImageData } from 'next/image';
 
 type SagaParams = {
   sagaId: number;
-  backgroundImage: any;
+  backgroundImage: StaticImageData;
   arcIds: number[];
   characterIds: number[];
   episodeIds: number[];
