@@ -15,7 +15,6 @@ type Params = {
   }>;
 };
 
-
 export const dynamic = "force-static";
 
 export function generateStaticParams() {
@@ -37,7 +36,6 @@ const messagesMap = {
 };
 
 export default async function LandingPage({ params }: Params) {
-
   const { locale } = await params;
 
   const messages = messagesMap[locale];
@@ -47,8 +45,10 @@ export default async function LandingPage({ params }: Params) {
   });
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#0d0d0d] to-[#1a1a1a] text-white font-sans">
-      <LanguageSwitcher />
+    <main className="min-h-screen bg-gradient-to-b from-[#0d0d0d] to-[#1a1a1a] text-white font-sans relative">
+      <div className="absolute top-4 right-4 z-20">
+        <LanguageSwitcher />
+      </div>
       <section className="relative flex flex-col items-center justify-center text-center px-6 py-24 md:py-36">
         <Image
           src={heroImage}

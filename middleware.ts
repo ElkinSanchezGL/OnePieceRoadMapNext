@@ -13,12 +13,12 @@ const intlMiddleware = createIntlMiddleware({
 
 export async function middleware(req: NextRequest) {
   const res = intlMiddleware(req);
-
   const supabase = createMiddlewareClient({ req, res });
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+
   const pathname = req.nextUrl.pathname;
 
   const publicRoutes = [`/`, `/login`, `/register`];
@@ -27,13 +27,22 @@ export async function middleware(req: NextRequest) {
       pathname === `/${defaultLocale}${route}` ||
       locales.some((loc) => pathname === `/${loc}${route}`)
   );
-  if (!isPublic && !user) {
+
+  if (isPublic) {
+    return res;
+  }
+
+  const isExpired =
+    !session?.expires_at || Date.now() >= session.expires_at * 1000;
+
+  if (!session || isExpired) {
     const loginUrl = new URL(`/${defaultLocale}/login`, req.url);
     return NextResponse.redirect(loginUrl);
   }
 
   return res;
 }
+
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

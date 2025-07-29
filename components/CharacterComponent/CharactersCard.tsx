@@ -37,8 +37,9 @@ export default function CharacterCard({ character, onSelect }: Props) {
         {localImage ? (
           <Image
             src={localImage}
-            alt={t("characterImageAlt", { name: character.name })}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            alt={t("characterImageAlt", { name: character.name })}
             className="object-cover"
             priority
           />

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import React from "react";
+import clsx from "clsx";
 
 type ButtonRedirectProps = {
   text: string;
@@ -26,18 +27,17 @@ const ButtonRedirect: React.FC<ButtonRedirectProps> = ({
     }
 
     const fullRoute = `/${locale}/${route.replace(/^\/+/, "")}`;
-
     router.push(fullRoute);
   };
 
   return (
     <button
       type="button"
-      className={
-        className ||
-        "bg-red-800 text-white px-8 py-2 rounded hover:bg-red-500 cursor-pointer"
-      }
       onClick={handleClick}
+      className={clsx(
+        "bg-red-800 cursor-pointer text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-md transition-colors duration-300 hover:bg-red-600 w-full sm:w-auto",
+        className
+      )}
     >
       {text}
     </button>

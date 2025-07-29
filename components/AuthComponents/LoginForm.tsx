@@ -31,7 +31,7 @@ const LoginForm = () => {
     if (error) {
       setError(error.message || t("invalidCredentials"));
     } else {
-      router.push(`/${locale}/`);
+      router.push(`/${locale}/home`);
     }
     setIsLoading(false);
   };

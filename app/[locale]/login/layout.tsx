@@ -1,11 +1,30 @@
 'use client';
 
-import ClientLayout from '../ClientLayout';
+import React from 'react';
+import { useLocale } from 'next-intl';
+import LanguageSwitcher from '@/i18n/LanguageSwitcher';
 
-export default function Layout({
+
+export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <ClientLayout>{children}</ClientLayout>;
+  const locale = useLocale();
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('lang', locale);
+    }
+  }, [locale]);
+
+  return (
+    <>
+      {children}
+
+      <div className="fixed top-4 right-4 z-[1000]">
+        <LanguageSwitcher />
+      </div>
+    </>
+  );
 }

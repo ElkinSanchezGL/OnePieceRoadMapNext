@@ -49,7 +49,7 @@ export const BurguerDespegable = () => {
   useClickOutside(dropdownRef, closeDropdown, isOpen);
 
   const buttons = [
-    { labelKey: 'home', route: '/' },
+    { labelKey: 'home', route: '/home' },
       { labelKey: 'map', route: '/map' },
     { labelKey: 'chooseSaga', route: '/sagas' },
     { labelKey: 'optionB', route: '/plans' },
