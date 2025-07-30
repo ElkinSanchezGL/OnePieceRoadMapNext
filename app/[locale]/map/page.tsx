@@ -21,12 +21,6 @@ const useLastIslandEffect = (
   router: ReturnType<typeof useRouter>
 ) => {
   useEffect(() => {
-    if (islandSlug) {
-      localStorage.setItem("lastIsland", islandSlug);
-    }
-  }, [islandSlug]);
-
-  useEffect(() => {
     if (!islandSlug && typeof window !== "undefined") {
       const lastIsland = localStorage.getItem("lastIsland");
       if (lastIsland) {
@@ -63,18 +57,16 @@ function isIslandCard(obj: unknown): obj is IslandCard {
   );
 }
 
-type TranslationFunction = (
-  key: string,
-  options?: Record<string, string | number | boolean>
-) => string;
+type TranslationFunction = {
+(key: string,options?: Record<string, string | number | boolean>): string;
+has: (key: string) => boolean;
+raw: (key:string) => unknown;
 
-type ExtendedTranslationFunction = TranslationFunction & {
-  has: (key: string) => boolean;
-  raw: (key: string) => unknown;
+
 };
 
 const useCards = (
-  tinsland: ExtendedTranslationFunction,
+  tinsland: TranslationFunction,
   islandPath: string
 ): IslandCard[] | undefined => {
   return useMemo(() => {
@@ -100,7 +92,7 @@ const Map = () => {
   const t = useTranslations("map");
   const tinsland = useTranslations(
     "importantPlaces"
-  ) as ExtendedTranslationFunction;
+  ) as TranslationFunction;
   const router = useRouter();
   const islandSlug = useIslandSlug();
   const [filterType, setFilterType] = useState<"all" | "saga" | "island">(

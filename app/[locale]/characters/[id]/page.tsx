@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -11,7 +11,7 @@ import loadingGifSrc from "@/assets/Sunny.gif";
 
 export default function CharacterDetailPage() {
   const { id } = useParams();
-  const locale = useLocale(); 
+  const locale = useLocale();
   const t = useTranslations("character");
   const [character, setCharacter] = useState<Character | null>(null);
   const [loading, setLoading] = useState(true);
@@ -19,7 +19,7 @@ export default function CharacterDetailPage() {
   useEffect(() => {
     if (!id || typeof id !== "string") return;
 
-    setLoading(true); 
+    setLoading(true);
     getCharacterById(Number(id), locale)
       .then(setCharacter)
       .finally(() => setLoading(false));
@@ -33,7 +33,6 @@ export default function CharacterDetailPage() {
         aria-busy="true"
         className="flex flex-col items-center justify-center min-h-screen"
       >
-        <p className="sr-only">{t("loading")}</p>
         <LoadingScreen imageSrc={loadingImageSrc} gifSrc={loadingGifSrc} />
       </div>
     );
@@ -41,10 +40,7 @@ export default function CharacterDetailPage() {
 
   if (!character) {
     return (
-      <p
-        className="text-center mt-10 text-red-600"
-        role="alert"
-      >
+      <p className="text-center mt-10 text-red-600" role="alert">
         {t("notFound")}
       </p>
     );

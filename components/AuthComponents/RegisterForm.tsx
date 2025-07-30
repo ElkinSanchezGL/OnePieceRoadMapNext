@@ -52,7 +52,6 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
         label={t("login.username")}
         value={formData.username}
         onChange={handleChange}
-        className="bg-red-50"
       />
       <InputField
         id="password"
@@ -60,7 +59,6 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
         type="password"
         value={formData.password}
         onChange={handleChange}
-        className="bg-red-50"
       />
       <InputField
         id="confirmPassword"
@@ -68,7 +66,6 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
         type="password"
         value={formData.confirmPassword}
         onChange={handleChange}
-        className="bg-red-50"
       />
 
       {formData.password !== formData.confirmPassword && (

@@ -21,6 +21,7 @@ export const LoadingScreen = ({ imageSrc, gifSrc }: LoadingScreenProps) => {
           src={imageSrc}
           alt={t("loadingTitleAlt") || "Loading title image"}
           fill
+          sizes="60"
           className="object-contain"
           priority
         />

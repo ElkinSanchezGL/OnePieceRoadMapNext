@@ -38,31 +38,39 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="relative text-sm">
+    <div className="relative text-sm z-50">
       <button
-        className="cursor-pointer flex items-center gap-2 p-2 px-4 bg-white text-black border rounded shadow min-w-[140px]"
-        onClick={() => setShowMenu(!showMenu)}
+        aria-haspopup="listbox"
+        aria-expanded={showMenu}
+        className="cursor-pointer flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg shadow-md hover:bg-zinc-800 transition-all duration-200"
+        onClick={() => setShowMenu((prev) => !prev)}
       >
         <div className="relative w-6 h-4">
           <Image
             src={currentLang.flag}
             alt={currentLang.label}
             fill
-            sizes="24"
             className="object-contain rounded-sm"
+            sizes="24px"
           />
         </div>
-        <span>{currentLang.label}</span>
-        <Globe className="w-4 h-4 ml-auto text-gray-600" />
+        <span className="hidden sm:inline">{currentLang.label}</span>
+        <Globe className="w-4 h-4 text-white ml-1" />
       </button>
 
       {showMenu && (
-        <div className="absolute right-0 mt-2 w-44 bg-white border rounded shadow z-10">
+        <div
+          role="listbox"
+          className=" absolute right-0 mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg animate-fadeIn"
+        >
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => changeLanguage(lang.code)}
-              className="cursor-pointer flex items-center gap-2 w-full px-4 py-2 text-black hover:bg-gray-100"
+              className={`cursor-pointer flex items-center gap-2 w-full px-4 py-2 text-sm text-black hover:bg-gray-100 transition-colors duration-150 ${
+                lang.code === locale ? "font-semibold bg-gray-50" : ""
+              }`}
+              tabIndex={0}
             >
               <div className="relative w-6 h-4">
                 <Image

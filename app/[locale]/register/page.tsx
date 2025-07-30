@@ -10,10 +10,9 @@ const RegisterPage = () => {
         className="flex justify-center items-center h-screen"
         aria-labelledby="register-heading"
       >
-        <h1 id="register-heading" className="sr-only">
-          Registro
-        </h1>
-        <RegisterForm />
+        <div className="w-full max-w-md p-4">
+          <RegisterForm />
+        </div>
       </main>
     </Background>
   );
