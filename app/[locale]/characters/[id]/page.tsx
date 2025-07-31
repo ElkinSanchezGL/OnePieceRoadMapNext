@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { getCharacterById, Character } from "@/services/getCharacters";
-import CharacterDetail from "@/components/CharacterComponent/CharactersDetail";
-import { LoadingScreen } from "@/components/GeneralComponents/LoadingScreen";
+import CharacterDetail from "@/components/characterComponent/charactersDetail";
+import { LoadingScreen } from "@/components/generalComponents/loadingScreen";
 import loadingImageSrc from "@/assets/GeneralImages/OnePieceRoadMap.png";
 import loadingGifSrc from "@/assets/Sunny.gif";
 

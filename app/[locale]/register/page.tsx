@@ -1,7 +1,7 @@
 import React from "react";
-import Background from "@/components/GeneralComponents/Background";
+import Background from "@/components/generalComponents/background";
 import GeneralOnepiece from "@/assets/GeneralImages/One_Piece.png";
-import RegisterForm from "@/components/AuthComponents/RegisterForm";
+import RegisterForm from "@/components/authComponents/registerForm";
 
 const RegisterPage = () => {
   return (

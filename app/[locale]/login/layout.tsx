@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useLocale } from 'next-intl';
-import LanguageSwitcher from '@/i18n/LanguageSwitcher';
+import LanguageSwitcher from '@/i18n/languageSwitcher';
 
 
 export default function ClientLayout({

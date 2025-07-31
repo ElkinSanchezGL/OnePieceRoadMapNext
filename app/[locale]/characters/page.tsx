@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getAllCharacters, Character } from "@/services/getCharacters";
-import CharactersGrid from "@/components/CharacterComponent/CharactersGrid";
-import Background from "@/components/GeneralComponents/Background";
+import CharactersGrid from "@/components/characterComponent/charactersGrid";
+import Background from "@/components/generalComponents/background";
 import GeneralOnepiece from "@/assets/GeneralImages/One_Piece.png";
 import { useTranslations } from "next-intl";
-import { LoadingScreen } from "@/components/GeneralComponents/LoadingScreen";
+import { LoadingScreen } from "@/components/generalComponents/loadingScreen";
 import SunnyGO from "@/assets/Sunny.gif";
 import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png";
 

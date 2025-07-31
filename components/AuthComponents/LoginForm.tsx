@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import InputField from "./InputField";
+import InputField from "./inputField";
 import { supabase } from "@/utils/supabase";
 const LoginForm = () => {
   const t = useTranslations("login");

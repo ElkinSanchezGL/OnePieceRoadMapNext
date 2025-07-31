@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from "next-intl";
-import { PricingPlan } from "@/i18n/PricingPlan";
+import { PricingPlan } from "@/i18n/pricingPlan";
 import { useCurrency } from "@/hooks/useCurrency";
 import { getPlansData } from "@/utils/getPlanData";
 

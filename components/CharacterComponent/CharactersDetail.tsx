@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { getCharacterById, Character } from "@/services/getCharacters";
 import { mugiwaraImages } from "@/utils/mugiwaraImages2";
-import { LoadingScreen } from "../GeneralComponents/LoadingScreen";
+import { LoadingScreen } from "../generalComponents/loadingScreen";
 import WantedBG from "@/assets/wanted-bg.jpg";
-import Background from "../GeneralComponents/Background";
+import Background from "../generalComponents/background";
 import MugiFlag from "@/assets/GeneralImages/MugiFlag.jpeg";
-import CrewInfo from "./CrewInfo";
+import CrewInfo from "./crewInfo";
 import SunnyGO from "@/assets/Sunny.gif"
 import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png"
-import CharacterImage from "./CharacterImage";
-import FruitInfo from "./FruitInfo";
+import CharacterImage from "./characterImage";
+import FruitInfo from "./fruitInfo";
 type Props = {
   characterId: number;
 };

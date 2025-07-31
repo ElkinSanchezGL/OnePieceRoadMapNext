@@ -1,7 +1,7 @@
 "use client";
 
 import { Character } from "@/services/getCharacters";
-import CharacterCard from "./CharactersCard";
+import CharacterCard from "./charactersCard";
 
 type Props = {
   characters: Character[];

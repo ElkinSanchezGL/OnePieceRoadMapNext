@@ -87,9 +87,9 @@ export default function IslandModal({
                       <Image
                         src={cardImages[activeCard.id]}
                         alt=""
-                        fill
+                        sizes="60"
                         role="presentation"
-                        className="object-cover rounded-lg border border-yellow-600"
+                        className="object-contain w-full h-full rounded-lg border border-yellow-600"
                       />
                     )}
                   </div>
