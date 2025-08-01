@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/utils/supabase";
+import { supabase } from "@/services/supabase";
 
 
 

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Character } from "@/services/getCharacters";
-import { mugiwaraImages } from "@/utils/mugiwaraImages";
+import { mugiwaraImages } from "@/assets/mugiwaraImages";
 
 type Props = {
   character: Character;

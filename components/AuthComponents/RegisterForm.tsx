@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import InputField from "./inputField";
-import { supabase } from "@/utils/supabase";
+import { supabase } from "@/services/supabase";
 
 const RegisterForm = () => {
   const  t  = useTranslations();

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { getCharacterById, Character } from "@/services/getCharacters";
-import { mugiwaraImages } from "@/utils/mugiwaraImages2";
+import { mugiwaraImages } from "@/assets/mugiwaraImages2";
 import { LoadingScreen } from "../generalComponents/loadingScreen";
 import WantedBG from "@/assets/wanted-bg.jpg";
 import Background from "../generalComponents/background";
