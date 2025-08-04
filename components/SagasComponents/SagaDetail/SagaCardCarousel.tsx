@@ -1,4 +1,5 @@
-'use client';
+"use client";
+
 import { useState, ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,11 +19,21 @@ type SagaCardCarouselProps = {
   extraContent?: (index: number) => ReactNode;
 };
 
-export const SagaCardCarousel = ({ cards, extraContent }: SagaCardCarouselProps) => {
-  const [[currentIndex, direction], setIndex] = useState<[number, number]>([0, 0]);
+export const SagaCardCarousel = ({
+  cards,
+  extraContent,
+}: SagaCardCarouselProps) => {
+  const [[currentIndex, direction], setIndex] = useState<[number, number]>([
+    0, 0,
+  ]);
+
+  if (!cards || cards.length === 0) return null;
 
   const paginate = (newDirection: number) => {
-    setIndex(([prev]) => [(prev + newDirection + cards.length) % cards.length, newDirection]);
+    setIndex(([prev]) => [
+      (prev + newDirection + cards.length) % cards.length,
+      newDirection,
+    ]);
   };
 
   const currentCard = cards[currentIndex];
@@ -39,56 +50,68 @@ export const SagaCardCarousel = ({ cards, extraContent }: SagaCardCarouselProps)
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
       className={clsx(
-        "relative w-[580px] h-[420px] bg-[#fdf5e6]",
+        "relative w-[620px] min-h-[420px] bg-[#fdf5e6]",
         "border-[10px] border-[#d2b48c] rounded-md shadow-xl",
-        "text-brown-900 font-serif px-6 py-4",
+        "text-brown-900 font-serif px-6 pt-2 pb-4",
         "overflow-visible"
       )}
       style={{
         backgroundImage: `url(${WantedBG.src})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        boxShadow: 'inset 0 0 10px #aa8c66',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        boxShadow: "inset 0 0 10px #aa8c66",
       }}
       role="region"
       aria-label="Saga card carousel"
     >
-      <div className="relative h-[270px] w-full mt-3">
+      <div className="relative w-full">
+
+
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
-            key={currentIndex}
+            key={currentCard.title}
             custom={direction}
             variants={variants}
             initial="enter"
             animate="center"
             exit="exit"
             transition={{ duration: 0.4 }}
-            className="absolute w-full h-full overflow-y-auto px-2"
+            className="absolute w-full h-full"
           >
-            {extraContent ? (
-              extraContent(currentIndex)
-            ) : (
-              <div className="text-center px-4">
-                <p className="mb-3 text-md">{currentCard.text}</p>
-                {currentCard.bottomImageUrl && (
-                  <div className="relative max-w-full h-[130px] mt-2 mx-auto shadow-md rounded overflow-hidden">
-                    <Image
-                      src={currentCard.bottomImageUrl}
-                      alt={`Image for ${currentCard.title}`}
-                      fill
-                      style={{ objectFit: 'contain' }}
-                      sizes="(max-width: 600px) 100vw, 580px"
-                    />
-                  </div>
-                )}
-              </div>
-            )}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="flex flex-col gap-2 px-4 py-2 max-h-[300px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#c2a676] scrollbar-track-transparent"
+
+            >
+              {currentCard.bottomImageUrl && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
+                  className="relative max-w-full h-[130px] mt-4 mx-auto shadow-md rounded overflow-hidden"
+                >
+                  <Image
+                    src={currentCard.bottomImageUrl}
+                    alt={`Image for ${currentCard.title}`}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    sizes="(max-width: 600px) 100vw, 580px"
+                  />
+                </motion.div>
+              )}
+            </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>
-
       {currentIndex === 0 && currentCard.imageUrl && (
-        <div className="relative w-32 h-32 mx-auto mt-3 rounded-full border-4 border-[#d2b48c] overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.4 }}
+          className="relative w-32 h-32 mx-auto mt-3 rounded-full border-4 border-[#d2b48c] overflow-hidden"
+        >
           <Image
             src={currentCard.imageUrl}
             alt={`Portrait of ${currentCard.title}`}
@@ -96,8 +119,10 @@ export const SagaCardCarousel = ({ cards, extraContent }: SagaCardCarouselProps)
             style={{ objectFit: "cover" }}
             sizes="128px"
           />
-        </div>
+        </motion.div>
       )}
+
+      {extraContent && <div className="mt-4">{extraContent(currentIndex)}</div>}
 
       <button
         onClick={() => paginate(-1)}

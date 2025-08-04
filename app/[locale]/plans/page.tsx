@@ -1,9 +1,9 @@
 'use client';
 
 import { useTranslations } from "next-intl";
-import { PricingPlan } from "@/i18n/pricingPlan";
+import { PricingPlan } from "@/components/plansComponets/pricingPlan";
 import { useCurrency } from "@/hooks/useCurrency";
-import { getPlansData } from "@/utils/getPlanData";
+import { getPlansData } from "@/data/getPlanData";
 
 export default function PlansPage() {
   const t = useTranslations('plans');

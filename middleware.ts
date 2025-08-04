@@ -11,15 +11,47 @@ const intlMiddleware = createIntlMiddleware({
   defaultLocale,
 });
 
+function isValidLocale(locale: string): locale is (typeof locales)[number] {
+  return locales.includes(locale as any);
+}
+
 export async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  const hasLocale = locales.some((loc) => pathname.startsWith(`/${loc}`));
+
+  if (!hasLocale) {
+    const preferredLocale = req.cookies.get("preferredLocale")?.value;
+
+    if (preferredLocale && isValidLocale(preferredLocale)) {
+      const cleanedPath = pathname.replace(/^\/(en|es|fr|de|jp)(?=\/|$)/, "");
+      const url = req.nextUrl.clone();
+      url.pathname = `/${preferredLocale}${
+        cleanedPath.startsWith("/") ? cleanedPath : `/${cleanedPath}`
+      }`;
+      return NextResponse.redirect(url);
+    }
+  }
+  const pathParts = pathname.split("/");
+  const localePart = pathParts[1];
+
+  if (locales.includes(localePart as any)) {
+    const rest = pathParts.slice(2).join("/");
+    const secondPart = rest.split("/")[0];
+
+    if (locales.includes(secondPart as any)) {
+      const url = req.nextUrl.clone();
+      url.pathname = `/${secondPart}/${rest.split("/").slice(1).join("/")}`;
+      return NextResponse.redirect(url);
+    }
+  }
+
   const res = intlMiddleware(req);
   const supabase = createMiddlewareClient({ req, res });
 
   const {
     data: { session },
   } = await supabase.auth.getSession();
-
-  const pathname = req.nextUrl.pathname;
 
   const publicRoutes = [`/`, `/login`, `/register`];
   const isPublic = publicRoutes.some(
@@ -28,9 +60,7 @@ export async function middleware(req: NextRequest) {
       locales.some((loc) => pathname === `/${loc}${route}`)
   );
 
-  if (isPublic) {
-    return res;
-  }
+  if (isPublic) return res;
 
   const isExpired =
     !session?.expires_at || Date.now() >= session.expires_at * 1000;
@@ -42,7 +72,6 @@ export async function middleware(req: NextRequest) {
 
   return res;
 }
-
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!_next|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)"],
 };

@@ -2,6 +2,27 @@
 
 import { useTranslations } from 'next-intl';
 import type { Arc, Character, Episode, Location } from './types';
+import { motion } from 'framer-motion';
+
+const SectionWrapper = ({
+  title,
+  loading,
+  children,
+}: {
+  title: string;
+  loading: boolean;
+  children: React.ReactNode;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 15 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    className="bg-white rounded-xl p-6 shadow-md border border-gray-200 mb-6"
+  >
+    <h3 className="text-2xl font-semibold text-gray-800 mb-3">{title}</h3>
+    {loading ? <p className="text-gray-500">Loading...</p> : children}
+  </motion.div>
+);
 
 export function ArcsSection({
   arcs,
@@ -13,18 +34,13 @@ export function ArcsSection({
   const t = useTranslations('sagaDetail');
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow border mb-4">
-      <h3 className="font-bold text-lg mb-2">{t('includedArcs')}</h3>
-      {loading ? (
-        <p>{t('loadingSection')}</p>
-      ) : (
-        <ul className="list-disc list-inside">
-          {arcs.map((arc) => (
-            <li key={arc.id}>{arc.title}</li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <SectionWrapper title={t('includedArcs')} loading={loading}>
+      <ul className="list-disc list-inside space-y-1 text-gray-700">
+        {arcs.map((arc) => (
+          <li key={arc.id} className="ml-2">{arc.title}</li>
+        ))}
+      </ul>
+    </SectionWrapper>
   );
 }
 
@@ -38,18 +54,13 @@ export function CharactersSection({
   const t = useTranslations('sagaDetail');
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow border mb-4">
-      <h3 className="font-bold text-lg mb-2">{t('featuredCharacters')}</h3>
-      {loading ? (
-        <p>{t('loadingSection')}</p>
-      ) : (
-        <ul className="list-disc list-inside">
-          {characters.map((char) => (
-            <li key={char.id}>{char.name}</li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <SectionWrapper title={t('featuredCharacters')} loading={loading}>
+      <ul className="list-disc list-inside space-y-1 text-gray-700">
+        {characters.map((char) => (
+          <li key={char.id} className="ml-2">{char.name}</li>
+        ))}
+      </ul>
+    </SectionWrapper>
   );
 }
 
@@ -63,20 +74,15 @@ export function EpisodesSection({
   const t = useTranslations('sagaDetail');
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow border mb-4">
-      <h3 className="font-bold text-lg mb-2">{t('mainEpisodes')}</h3>
-      {loading ? (
-        <p>{t('loadingSection')}</p>
-      ) : (
-        <ul className="list-disc list-inside">
-          {episodes.map((ep) => (
-            <li key={ep.id}>
-              {ep.episode} {ep.title}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <SectionWrapper title={t('mainEpisodes')} loading={loading}>
+      <ul className="list-disc list-inside space-y-1 text-gray-700">
+        {episodes.map((ep) => (
+          <li key={ep.id} className="ml-2">
+            <span className="font-semibold text-gray-800">{ep.episode}</span> {ep.title}
+          </li>
+        ))}
+      </ul>
+    </SectionWrapper>
   );
 }
 
@@ -90,21 +96,18 @@ export function LocationsSection({
   const t = useTranslations('sagaDetail');
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow border">
-      <h3 className="font-bold text-lg mb-2">{t('featuredLocations')}</h3>
-      {loading ? (
-        <p>{t('loadingSection')}</p>
-      ) : locations.length > 0 ? (
-        <ul className="list-disc list-inside">
+    <SectionWrapper title={t('featuredLocations')} loading={loading}>
+      {locations.length > 0 ? (
+        <ul className="list-disc list-inside space-y-1 text-gray-700">
           {locations.map((loc) => (
-            <li key={loc.id}>{loc.name}</li>
+            <li key={loc.id} className="ml-2">{loc.name}</li>
           ))}
         </ul>
       ) : (
-        <ul className="list-disc list-inside">
+        <ul className="list-disc list-inside text-gray-500">
           <li>{t('noLocations')}</li>
         </ul>
       )}
-    </div>
+    </SectionWrapper>
   );
 }

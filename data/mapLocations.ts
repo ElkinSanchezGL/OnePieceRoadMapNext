@@ -8,7 +8,7 @@ export const mapLocations = [
   {
     name: "Alabasta",
     coords: { x: 0.712, y: 0.53 },
-    path: "/sagas/arabasta",
+    path: "/sagas/alabasta",
     type: "saga",
   },
   {

@@ -29,13 +29,16 @@ const LanguageSwitcher = () => {
 
   const currentLang = languages.find((l) => l.code === locale) ?? languages[0];
 
-  const changeLanguage = (newLocale: string) => {
-    if (!routing.locales.includes(newLocale as any)) return;
-    router.replace(pathname, { locale: newLocale });
-    router.refresh();
-    localStorage.setItem("lang", newLocale);
-    setShowMenu(false);
-  };
+const changeLanguage = (newLocale: string) => {
+  if (!routing.locales.includes(newLocale as any)) return;
+  document.cookie = `preferredLocale=${newLocale}; path=/; max-age=31536000`;
+  localStorage.setItem("preferredLocale", newLocale);
+  const cleanPath = pathname.replace(/^\/(en|es|fr|de|jp)/, "");
+  const finalPath = `/${newLocale}${cleanPath.startsWith("/") ? cleanPath : `/${cleanPath}`}`;
+
+  router.replace(finalPath);
+  setShowMenu(false);
+};
 
   return (
     <div className="relative text-sm z-50">
