@@ -38,12 +38,11 @@ const messagesMap = {
 export default async function LandingPage({ params }: Params) {
   const { locale } = await params;
 
-  const messages = messagesMap[locale];
+  const messages = messagesMap[locale] ?? messagesMap["en"];
   const t = createTranslator({
     locale,
     messages,
   });
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#0d0d0d] to-[#1a1a1a] text-white font-sans relative">
       <div className="absolute top-4 right-4 z-20">

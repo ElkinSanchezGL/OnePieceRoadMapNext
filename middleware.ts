@@ -18,8 +18,12 @@ function isValidLocale(locale: string): locale is (typeof locales)[number] {
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  const hasLocale = locales.some((loc) => pathname.startsWith(`/${loc}`));
+  // Permitir que las páginas de error funcionen sin redirección
+  if (pathname.includes('/error') || pathname.includes('/not-found')) {
+    return NextResponse.next();
+  }
 
+  const hasLocale = locales.some((loc) => pathname.startsWith(`/${loc}`));
   if (!hasLocale) {
     const preferredLocale = req.cookies.get("preferredLocale")?.value;
 
@@ -32,6 +36,7 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(url);
     }
   }
+
   const pathParts = pathname.split("/");
   const localePart = pathParts[1];
 

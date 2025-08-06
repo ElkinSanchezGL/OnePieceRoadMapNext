@@ -4,8 +4,8 @@ import { getMessages } from 'next-intl/server';
 import '../globals.css';
 
 export const metadata: Metadata = {
-  title: 'One Piece RoadMap',
-  description: 'Explora el mundo de One Piece y sigue el viaje de los Sombrero de Paja.',
+  title: 'One Piece RoadMap - Error',
+  description: 'Página de error de One Piece RoadMap',
 };
 
 export default async function LocaleLayout({

@@ -7,8 +7,9 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 
-const HiArrowCircleDown = dynamic(() =>
-  import("react-icons/hi").then((mod) => mod.HiArrowCircleDown)
+const HiArrowCircleDown = dynamic(
+  () => import("react-icons/hi").then((mod) => mod.HiArrowCircleDown),
+  { ssr: false }
 );
 
 type Props = {
