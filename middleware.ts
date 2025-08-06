@@ -18,7 +18,6 @@ function isValidLocale(locale: string): locale is (typeof locales)[number] {
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Permitir que las páginas de error funcionen sin redirección
   if (pathname.includes('/error') || pathname.includes('/not-found')) {
     return NextResponse.next();
   }

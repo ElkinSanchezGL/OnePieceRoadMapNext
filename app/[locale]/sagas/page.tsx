@@ -8,7 +8,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { sagaData } from "@/data/sagaData";
 import { SagaTimelineElement } from "@/components/sagasComponents/sagaTimelineElement";
 import Background from "@/components/generalComponents/background";
-import Sea from "@/assets/GeneralImages/Sea.png";
+import Sea from "@/assets/generalImages/sea.png";
 
 export default function SagasTimelinePage() {
   const t = useTranslations("timeline");

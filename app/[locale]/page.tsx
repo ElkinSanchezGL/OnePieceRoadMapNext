@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heroImage from "@/assets/GeneralImages/One_Piece.png";
+import heroImage from "@/assets/generalImages/one_Piece.png";
 import ButtonRedirect from "@/components/generalComponents/button";
 import { createTranslator } from "next-intl";
 import landingMessagesES from "@/messages/es/landing.json";

@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation";
 import { getAllCharacters, Character } from "@/services/getCharacters";
 import CharactersGrid from "@/components/characterComponent/charactersGrid";
 import Background from "@/components/generalComponents/background";
-import GeneralOnepiece from "@/assets/GeneralImages/One_Piece.png";
+import GeneralOnepiece from "@/assets/generalImages/one_Piece.png";
 import { useTranslations } from "next-intl";
 import { LoadingScreen } from "@/components/generalComponents/loadingScreen";
-import SunnyGO from "@/assets/Sunny.gif";
-import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png";
+import SunnyGO from "@/assets/sunny.gif";
+import MapRoad from "@/assets/generalImages/onePieceRoadMap.png";
 
 export default function CharactersPage() {
   const router = useRouter();

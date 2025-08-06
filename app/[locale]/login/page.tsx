@@ -1,6 +1,6 @@
 import React from "react";
 import Background from "@/components/generalComponents/background";
-import GeneralOnepiece from "@/assets/GeneralImages/One_Piece.png";
+import GeneralOnepiece from "@/assets/generalImages/one_Piece.png";
 import LoginForm from "@/components/authComponents/loginForm";
 
 const Login = () => {

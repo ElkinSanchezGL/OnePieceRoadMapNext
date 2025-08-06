@@ -7,10 +7,10 @@ import { mugiwaraImages } from "@/assets/mugiwaraImages2";
 import { LoadingScreen } from "../generalComponents/loadingScreen";
 import WantedBG from "@/assets/wanted-bg.jpg";
 import Background from "../generalComponents/background";
-import MugiFlag from "@/assets/GeneralImages/MugiFlag.jpeg";
+import MugiFlag from "@/assets/generalImages/mugiFlag.jpeg";
 import CrewInfo from "./crewInfo";
-import SunnyGO from "@/assets/Sunny.gif"
-import MapRoad from "@/assets/GeneralImages/OnePieceRoadMap.png"
+import SunnyGO from "@/assets/sunny.gif"
+import MapRoad from "@/assets/generalImages/onePieceRoadMap.png"
 import CharacterImage from "./characterImage";
 import FruitInfo from "./fruitInfo";
 type Props = {
